@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publications - Nirmal Thomas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="layout">
+    <!-- HEADER -->
+    <header class="header_div">
+        <div class="container header">
+            <h1 class="header-logo">Nirmal Thomas</h1>
+            <nav class="nav-links-tab">
+                <a href="./index.html" class="nav-link">Home</a>
+                <a href="./publications.html" class="nav-link">Publications</a>
+                <a href="./projects.html" class="nav-link">Projects</a>
+                <a href="./cv.html" class="nav-link" target="_blank">CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content">
+        <section class="content-full">
+            <h1 class="heading">Publications</h1>
+            <p class="text">Research publications and conference papers.</p>
+
+            <br><br>
+
+            <!-- Publication Card 1 -->
+            <div class="publication-card">
+                <div class="publication-header">
+                    <h5 class="publication-title">Global PIQA: Evaluating Physical Commonsense Reasoning Across 100+ Languages and Cultures</h5>
+                    <a href="https://arxiv.org/abs/2510.24081" class="publication-link" target="_blank"><i class="fa-solid fa-link"></i></a>
+                </div>
+                <p class="publication-authors">Tyler A. Chang, Catherine Arnett, and Authors at the 5th Multilingual Representation Learning (MRL) Workshop</p>
+                <p class="publication-venue">The 5th Workshop on Multi-lingual Representation Learning(MRL), EMNLP-2025</p>
+                <p class="publication-desc">Contributed to the construction of dataset samples in Hindi</p>
+                <div class="publication-tags">
+                    <span class="tag">Dataset</span>
+                </div>
+            </div>
+
+            <!-- Publication Card 2 - Placeholder
+            <div class="publication-card">
+                <div class="publication-header">
+                    <h5 class="publication-title">Your Publication Title Here</h5>
+                    <a href="#" class="publication-link" target="_blank"><i class="fa-solid fa-link"></i></a>
+                </div>
+                <p class="publication-authors">Author Names</p>
+                <p class="publication-venue">Conference/Journal Name • Year</p>
+                <p class="publication-desc">Brief description of the publication or research work.</p>
+                <div class="publication-tags">
+                    <span class="tag">Tag1</span>
+                    <span class="tag">Tag2</span>
+                </div>
+            </div> -->
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-copy">© 2025 Nirmal Thomas. Powered by Jekyll & AcademicPages, a fork of Minimal Mistakes.</p>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+</div>
+
+<script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const layout = document.querySelector('.layout');
+    const icon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference or default to dark theme
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    // Apply the saved or default theme
+    if (currentTheme === 'light') {
+        layout.classList.add('light-theme');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        layout.classList.toggle('light-theme');
+
+        // Update icon
+        if (layout.classList.contains('light-theme')) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishal Thomas</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons (React icons converted to Font Awesome CDN equivalents) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- Three.js library (r149 - last version before deprecation warnings) -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+</head>
+<body>
+<div class="layout">
+    <!-- Scroll-based overlay for background fade -->
+    <div class="background-overlay" id="backgroundOverlay"></div>
+
+    <!-- CINEMATIC HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Nishal Thomas</h1>
+            <p class="hero-subtitle">Exploring AI interpretability, generalization dynamics, and mechanistic understanding of neural networks</p>
+            <div class="hero-links">
+                <a href="mailto:nishal.thomas44@gmail.com" class="hero-link" title="Email"><i class="fa-solid fa-envelope"></i></a>
+                <a href="https://github.com/Nishal14" target="_blank" class="hero-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- FIXED NAVIGATION -->
+    <nav class="fixed-nav" id="fixedNav">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">NT</a>
+            <div class="nav-links">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#writings" class="nav-link">Blogs/Writings</a>
+                <a href="./public/Nishal_Thomas_CV.pdf" class="nav-link" target="_blank">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT SECTIONS -->
+    <main class="content-wrapper">
+        <div class="container">
+    <section id="about">
+        <h1 class="heading">About Me</h1>
+        <p class="text">
+            Hi, I’m <strong>Nishal Thomas</strong>, a Class 11 student passionate about machine learning, neural networks, and interpretability research. I build research-oriented projects that explore how models learn structure, generalize, and process information.
+        </p>
+        <p class="text">
+            My current work spans mechanistic interpretability, generalization dynamics like grokking, and compact transformer models for algorithmic reasoning. I value reproducibility and clarity, and I enjoy turning conceptual ideas into documented, open-source research pipelines.
+        </p>
+        <p class="text">
+            Beyond project work, I write technical explainers and guides that make complex topics more accessible. I’m particularly interested in the intersection of AI, mathematics, and structured reasoning, and I’m looking to grow further in research and experimentation.
+        </p>
+        <p class="text">
+            I study at St. Mary’s Sr. Sec. School in New Delhi, India. You’ll find links to my projects, code, and writings throughout this site — feel free to explore!
+        </p>
+</section>
+
+
+
+
+            <br><br><br>
+
+<section id="projects">
+    <h1 class="heading">Projects</h1>
+
+    <div class="project-item">
+        <h2>Step-Free Arithmetic Transformers</h2>
+
+        <div class="project-meta">
+            <p class="project-subtitle">Mechanistic Interpretability Study</p>
+            <p class="project-links">
+                <a href="https://github.com/Nishal14/Step-free-arithmetic-transformers" target="_blank">GitHub</a> •
+                <a href="https://nishal14.substack.com/p/intro-to-mechanistic-interpretability" target="_blank">Writeup</a>
+            </p>
+        </div>
+
+        <p class="text">
+            A research project investigating how compact transformer models learn arithmetic reasoning.
+            The work focuses on interpretability experiments that reveal structured internal representations
+            and causal mechanisms behind model generalization.
+        </p>
+    </div>
+
+    <div class="project-item">
+        <h2>Grokking Feasibility Boundaries in Transformers</h2>
+
+        <div class="project-meta">
+            <p class="project-subtitle">Empirical Study of Generalization Dynamics</p>
+            <p class="project-links">
+                <a href="https://github.com/Nishal14/Grokking-boundaries" target="_blank">GitHub</a> •
+                <a href="https://nishal14.substack.com/p/mapping-the-feasibility-boundary" target="_blank">Writeup</a>
+            </p>
+        </div>
+
+        <p class="text">
+            An empirical exploration of delayed generalization in transformer models, mapping the
+            conditions under which grokking behavior emerges or collapses through controlled experiments.
+        </p>
+    </div>
+
+    <div class="project-item">
+        <h2>Smart Traffic Light System</h2>
+
+        <div class="project-meta">
+            <p class="project-subtitle">Computer Vision + Embedded Systems</p>
+            <p class="project-links">
+                <a href="https://github.com/Nishal14/smart-traffic-light" target="_blank">GitHub</a>
+            </p>
+        </div>
+
+        <p class="text">
+            A real-time intelligent traffic control system combining computer vision and Arduino-based
+            hardware to automate signal decisions using vehicle density detection.
+        </p>
+    </div>
+
+</section>
+
+<section id="writings">
+  <h2 class="heading">Writings</h2>
+
+  <p class="text">
+    I write technical essays and research notes about machine learning,
+    focusing on interpretability, generalization, and experimental exploration.
+  </p>
+
+  <div class="writing-item">
+    <h3>Mapping the Feasibility Boundary of Grokking in Transformers</h3>
+    <p>
+      An experimental study exploring when delayed generalization appears
+      and where it breaks down.
+    </p>
+    <a href="https://nishal14.substack.com/p/mapping-the-feasibility-boundary" target="_blank">
+      Read on Substack →
+    </a>
+  </div>
+
+  <div class="writing-item">
+    <h3>Introduction to Mechanistic Interpretability</h3>
+    <p>
+      A beginner-friendly guide to understanding how neural networks
+      represent and process structure.
+    </p>
+    <a href="https://nishal14.substack.com/p/intro-to-mechanistic-interpretability" target="_blank">
+      Read on Substack →
+    </a>
+  </div>
+</section>
+
+
+<section id="directions">
+  <h2 class="heading">Current Directions</h2>
+
+  <p class="text">
+    I’m currently exploring a few open questions in machine learning:
+  </p>
+
+  <ul class="interests-list">
+    <li>When and why small transformer models develop algorithmic structure</li>
+    <li>The boundaries of generalization in controlled experimental settings</li>
+    <li>Methods for probing internal representations in compact neural networks</li>
+    <li>Designing experiments that make model behavior easier to interpret</li>
+  </ul>
+
+  <p class="text">
+    These directions guide the projects I choose and the experiments I run.
+  </p>
+</section>
+
+<section id="contact">
+  <h2 class="heading">Contact</h2>
+
+  <p class="text">
+    If you’d like to talk about research, projects, or collaboration,
+    feel free to reach out.
+  </p>
+
+  <div class="contact-links">
+    <a href="mailto:nishal.thomas44@gmail.com">Email</a>
+    <a href="https://github.com/Nishal14" target="_blank">GitHub</a>
+    <a href="https://nishal14.substack.com" target="_blank">Substack</a>
+  </div>
+</section>
+
+
+    <!-- FOOTER - -->
+   <footer class="footer">
+       <p class="footer-title"></p>
+       <!-- <div class="social-tab-link">
+           <p>Follow:</p>
+           <div class="social-links-tab">
+               <div class="social-link"><i class="fa-brands fa-x-twitter"></i><p>Twitter</p></div>
+               <div class="social-link"><i class="fa-brands fa-linkedin-in"></i><p>LinkedIn</p></div>
+               <div class="social-link"><i class="fa-brands fa-instagram"></i><p>Instagram</p></div>
+           </div>
+       </div> -->
+       <p class="footer-copy">© 2026 Nishal Thomas.</p>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+</div>
+
+<script>
+    // Theme version check - resets theme to dark default once after code change
+    const THEME_VERSION = '2.0';
+    const currentVersion = localStorage.getItem('themeVersion');
+
+    if (currentVersion !== THEME_VERSION) {
+        // Reset to dark default on version change
+        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('themeVersion', THEME_VERSION);
+    }
+
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const layout = document.querySelector('.layout');
+    const icon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+
+    if (savedTheme === 'light') {
+        // User previously chose light mode - apply it
+        layout.classList.add('light-theme');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    } else if (!savedTheme) {
+        // First visit - save dark as default
+        localStorage.setItem('theme', 'dark');
+    }
+    // If savedTheme is 'dark' or null, keep dark theme (no light-theme class)
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        layout.classList.toggle('light-theme');
+
+        // Update icon
+        if (layout.classList.contains('light-theme')) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // Fixed navigation on scroll
+    const fixedNav = document.getElementById('fixedNav');
+    const hero = document.getElementById('hero');
+    const threeCanvas = document.getElementById('three-background');
+    const backgroundOverlay = document.getElementById('backgroundOverlay');
+
+    window.addEventListener('scroll', () => {
+        const heroBottom = hero ? hero.offsetHeight : 0;
+        const scrolled = window.scrollY;
+
+        // Show fixed nav after scrolling past hero
+        if (fixedNav && scrolled > heroBottom - 100) {
+            fixedNav.classList.add('visible');
+        } else if (fixedNav) {
+            fixedNav.classList.remove('visible');
+        }
+
+        // Scroll-based background fade transition
+        if (backgroundOverlay && threeCanvas && hero) {
+            // Start fading when user scrolls 20% through hero
+            const fadeStartPoint = heroBottom * 0.2;
+            // Complete fade at hero bottom
+            const fadeEndPoint = heroBottom;
+
+            let progress = 0;
+
+            if (scrolled <= fadeStartPoint) {
+                // Hero section - full 3D background, no overlay
+                progress = 0;
+            } else if (scrolled >= fadeEndPoint) {
+                // Content section - only gradient, no 3D
+                progress = 1;
+            } else {
+                // Transition zone - gradual fade
+                progress = (scrolled - fadeStartPoint) / (fadeEndPoint - fadeStartPoint);
+            }
+
+            // Fade in gradient overlay
+            backgroundOverlay.style.opacity = progress;
+
+            // Fade out 3D canvas completely
+            threeCanvas.style.opacity = 1 - progress;
+        }
+    });
+
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+</script>
+
+<!-- Three.js Background -->
+<script src="three-background.js?v=43"></script>
+</body>
+</html>

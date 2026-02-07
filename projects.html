@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Nirmal Thomas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="layout">
+    <!-- HEADER -->
+    <header class="header_div">
+        <div class="container header">
+            <h1 class="header-logo">Nirmal Thomas</h1>
+            <nav class="nav-links-tab">
+                <a href="./index.html" class="nav-link">Home</a>
+                <a href="./publications.html" class="nav-link">Publications</a>
+                <a href="./projects.html" class="nav-link">Projects</a>
+                <a href="./cv.html" class="nav-link" target="_blank">CV</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container content">
+        <section class="content-full">
+            <h1 class="heading">Projects</h1>
+            <p class="text">Notable projects and open-source contributions.</p>
+
+            <br><br>
+
+            <!-- Projects Grid -->
+            <div class="projects-grid">
+                <!-- Project Card 1 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Project Title</h5>
+                        <p class="project-desc">Brief description of what the project does and the technologies used.</p>
+                        <div class="publication-tags">
+                            <span class="tag">Python</span>
+                            <span class="tag">NLP</span>
+                            <span class="tag">FastAPI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link-btn" target="_blank" title="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link-btn" target="_blank" title="Live Demo">
+                                <i class="fa-solid fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Another Project</h5>
+                        <p class="project-desc">Project description goes here. Explain what makes this project interesting.</p>
+                        <div class="publication-tags">
+                            <span class="tag">React</span>
+                            <span class="tag">Node.js</span>
+                            <span class="tag">MongoDB</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link-btn" target="_blank" title="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">ML Pipeline</h5>
+                        <p class="project-desc">An end-to-end machine learning pipeline for training and deploying models at scale.</p>
+                        <div class="publication-tags">
+                            <span class="tag">PyTorch</span>
+                            <span class="tag">Docker</span>
+                            <span class="tag">AWS</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link-btn" target="_blank" title="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link-btn" target="_blank" title="Documentation">
+                                <i class="fa-solid fa-book"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 - Example of more cards -->
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://via.placeholder.com/400x300" alt="Project 4">
+                    </div>
+                    <div class="project-content">
+                        <h5 class="project-title">Fourth Project</h5>
+                        <p class="project-desc">Another project description to demonstrate the grid layout.</p>
+                        <div class="publication-tags">
+                            <span class="tag">Vue.js</span>
+                            <span class="tag">Firebase</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link-btn" target="_blank" title="GitHub">
+                                <i class="fa-brands fa-github"></i>
+                            </a>
+                            <a href="#" class="project-link-btn" target="_blank" title="Live Demo">
+                                <i class="fa-solid fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-copy">© 2025 Nirmal Thomas. Powered by Jekyll & AcademicPages, a fork of Minimal Mistakes.</p>
+    </footer>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+        <i class="fas fa-sun"></i>
+    </button>
+</div>
+
+<script>
+    // Theme toggle functionality
+    const themeToggle = document.getElementById('themeToggle');
+    const layout = document.querySelector('.layout');
+    const icon = themeToggle.querySelector('i');
+
+    // Check for saved theme preference or default to dark theme
+    const currentTheme = localStorage.getItem('theme') || 'dark';
+
+    // Apply the saved or default theme
+    if (currentTheme === 'light') {
+        layout.classList.add('light-theme');
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+
+    // Toggle theme on button click
+    themeToggle.addEventListener('click', () => {
+        layout.classList.toggle('light-theme');
+
+        // Update icon
+        if (layout.classList.contains('light-theme')) {
+            icon.classList.remove('fa-sun');
+            icon.classList.add('fa-moon');
+            localStorage.setItem('theme', 'light');
+        } else {
+            icon.classList.remove('fa-moon');
+            icon.classList.add('fa-sun');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+</script>
+</body>
+</html>
