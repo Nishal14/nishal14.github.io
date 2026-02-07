@@ -1274,11 +1274,17 @@ body {
 
 @media (max-width: 480px) {
     .nav-links {
-        display: none; /* Hide nav links on very small screens */
+        gap: 0.5rem;
+        flex-wrap: wrap;
     }
 
-    .nav-logo {
-        margin: 0 auto;
+    .fixed-nav .nav-link {
+        font-size: 0.75rem;
+    }
+
+    .nav-container {
+        flex-wrap: wrap;
+        gap: 0.5rem;
     }
 }
 
