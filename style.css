@@ -298,6 +298,19 @@ body {
     text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
 }
 
+/* Light theme hero text - much darker for visibility */
+.light-theme .hero-title {
+    color: #000000;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.light-theme .hero-subtitle {
+    color: #000000;
+    opacity: 1;
+    font-weight: 500;
+    text-shadow: none;
+}
+
 .hero-links {
     display: flex;
     gap: 1.5rem;
