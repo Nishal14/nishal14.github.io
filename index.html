@@ -36,7 +36,7 @@
     <!-- FIXED NAVIGATION -->
     <nav class="fixed-nav" id="fixedNav">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo">NT</a>
+            <a href="#hero" class="nav-logo"><img src="./public/logo.png" alt="NT Logo" class="nav-logo-img"></a>
             <div class="nav-links">
                 <a href="#about" class="nav-link">About</a>
                 <a href="#projects" class="nav-link">Projects</a>
@@ -259,22 +259,27 @@
         }
     });
 
-    // Fixed navigation on scroll
+    // Fixed navigation with cursor proximity detection
     const fixedNav = document.getElementById('fixedNav');
     const hero = document.getElementById('hero');
     const threeCanvas = document.getElementById('three-background');
     const backgroundOverlay = document.getElementById('backgroundOverlay');
 
+    // Cursor proximity detection for nav bar
+    window.addEventListener('mousemove', (e) => {
+        if (fixedNav) {
+            // Show nav when cursor is within 100px of top
+            if (e.clientY < 100) {
+                fixedNav.classList.add('visible');
+            } else {
+                fixedNav.classList.remove('visible');
+            }
+        }
+    });
+
     window.addEventListener('scroll', () => {
         const heroBottom = hero ? hero.offsetHeight : 0;
         const scrolled = window.scrollY;
-
-        // Show fixed nav after scrolling past hero
-        if (fixedNav && scrolled > heroBottom - 100) {
-            fixedNav.classList.add('visible');
-        } else if (fixedNav) {
-            fixedNav.classList.remove('visible');
-        }
 
         // Scroll-based background fade transition
         if (backgroundOverlay && threeCanvas && hero) {
