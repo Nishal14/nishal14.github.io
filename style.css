@@ -20,7 +20,7 @@ html {
 
 #writings a {
   position: relative;
-  color: #9fc2ff; /* soft cinematic blue */
+  color: var(--accent-color);
   text-decoration: none;
   transition: color 0.25s ease, text-shadow 0.25s ease;
 }
@@ -50,7 +50,7 @@ html {
 }
 
 #contact a {
-  color: #9fc2ff;
+  color: var(--accent-color);
   text-decoration: none;
   position: relative;
   transition: color 0.25s ease, text-shadow 0.25s ease;
@@ -63,13 +63,13 @@ html {
   bottom: -3px;
   width: 0;
   height: 1px;
-  background: #9fc2ff;
+  background: var(--accent-color);
   transition: width 0.25s ease;
 }
 
 #contact a:hover {
-  color: #cfe1ff;
-  text-shadow: 0 0 8px rgba(159, 194, 255, 0.4);
+  color: var(--color-blue);
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
 #contact a:hover::after {
@@ -85,14 +85,14 @@ html {
   bottom: -3px;
   width: 0;
   height: 1px;
-  background: #9fc2ff;
+  background: var(--accent-color);
   transition: width 0.25s ease;
 }
 
 /* Hover effects */
 #writings a:hover {
-  color: #cfe1ff;
-  text-shadow: 0 0 8px rgba(159, 194, 255, 0.4);
+  color: var(--color-blue);
+  text-shadow: 0 0 8px rgba(96, 165, 250, 0.4);
 }
 
 #writings a:hover::after {
@@ -248,10 +248,16 @@ body {
 
 .layout {
     background-color: transparent;
-    transition: background-color 0.3s ease;
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+/* Sub-pages (no Three.js canvas) need an explicit background */
+.layout.subpage {
+    background-color: var(--background-color);
 }
 
 /* ===============================
@@ -339,6 +345,13 @@ body {
     border-color: var(--accent-color);
     color: var(--background-color);
     transform: translateY(-3px);
+}
+
+/* Light theme: make hero link buttons visible against light background */
+.light-theme .hero-link {
+    background: rgba(0, 0, 0, 0.08);
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    color: var(--text-color);
 }
 
 /* Scroll Indicator */
