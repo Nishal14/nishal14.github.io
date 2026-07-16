@@ -3,193 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects - Nirmal Thomas</title>
+    <title>Projects — Nishal Thomas</title>
+    <meta name="description" content="Projects by Nishal Thomas — mechanistic interpretability, generalization dynamics, and applied ML.">
+    <meta property="og:title" content="Projects — Nishal Thomas">
+    <meta property="og:description" content="Projects by Nishal Thomas — mechanistic interpretability, generalization dynamics, and applied ML.">
+    <meta property="og:image" content="./public/logo.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="./public/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-<div class="layout subpage">
-    <!-- HEADER -->
-    <header class="header_div">
-        <div class="container header">
-            <h1 class="header-logo">Nirmal Thomas</h1>
-            <nav class="nav-links-tab">
-                <a href="./index.html" class="nav-link">Home</a>
-                <a href="./publications.html" class="nav-link">Publications</a>
-                <a href="./projects.html" class="nav-link">Projects</a>
-                <a href="./cv.html" class="nav-link" target="_blank">CV</a>
-            </nav>
-        </div>
-    </header>
-
-    <main class="container content">
-        <section class="content-full">
-            <h1 class="heading">Projects</h1>
-            <p class="text">Notable projects and open-source contributions.</p>
-
-            <br><br>
-
-            <!-- Projects Grid -->
-            <div class="projects-grid">
-                <!-- Project Card 1 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 1">
-                    </div>
-                    <div class="project-content">
-                        <h5 class="project-title">Project Title</h5>
-                        <p class="project-desc">Brief description of what the project does and the technologies used.</p>
-                        <div class="publication-tags">
-                            <span class="tag">Python</span>
-                            <span class="tag">NLP</span>
-                            <span class="tag">FastAPI</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link-btn" target="_blank" title="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="#" class="project-link-btn" target="_blank" title="Live Demo">
-                                <i class="fa-solid fa-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 2">
-                    </div>
-                    <div class="project-content">
-                        <h5 class="project-title">Another Project</h5>
-                        <p class="project-desc">Project description goes here. Explain what makes this project interesting.</p>
-                        <div class="publication-tags">
-                            <span class="tag">React</span>
-                            <span class="tag">Node.js</span>
-                            <span class="tag">MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link-btn" target="_blank" title="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 3">
-                    </div>
-                    <div class="project-content">
-                        <h5 class="project-title">ML Pipeline</h5>
-                        <p class="project-desc">An end-to-end machine learning pipeline for training and deploying models at scale.</p>
-                        <div class="publication-tags">
-                            <span class="tag">PyTorch</span>
-                            <span class="tag">Docker</span>
-                            <span class="tag">AWS</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link-btn" target="_blank" title="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="#" class="project-link-btn" target="_blank" title="Documentation">
-                                <i class="fa-solid fa-book"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 4 - Example of more cards -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Project 4">
-                    </div>
-                    <div class="project-content">
-                        <h5 class="project-title">Fourth Project</h5>
-                        <p class="project-desc">Another project description to demonstrate the grid layout.</p>
-                        <div class="publication-tags">
-                            <span class="tag">Vue.js</span>
-                            <span class="tag">Firebase</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="project-link-btn" target="_blank" title="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                            <a href="#" class="project-link-btn" target="_blank" title="Live Demo">
-                                <i class="fa-solid fa-link"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Continuum -->
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://via.placeholder.com/400x300" alt="Continuum">
-                    </div>
-                    <div class="project-content">
-                        <h5 class="project-title">Continuum</h5>
-                        <p class="project-desc">A Chrome extension that monitors epistemic drift in LLM conversations, visualizing contradictions and reasoning instability in real time. Powered by K2 Think V2 for strategic contradiction verification and reconciliation.</p>
-                        <div class="publication-tags">
-                            <span class="tag">Chrome Extension</span>
-                            <span class="tag">LLM</span>
-                            <span class="tag">JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="https://github.com/Nishal14/Continuum" class="project-link-btn" target="_blank" title="GitHub">
-                                <i class="fa-brands fa-github"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+<svg id="ambient-landscape" aria-hidden="true" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+    <defs>
+        <filter id="ambRoughA" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="7" result="ambTurbA"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="ambTurbA" scale="16" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+    </defs>
+    <g class="amb-far">
+        <path d="M0,600 C80,560 140,520 220,545 C300,570 340,500 420,480 C480,465 520,510 580,530 C650,555 700,470 780,460 C830,455 860,500 920,510 C970,518 990,470 1060,455 C1110,445 1140,480 1200,500 C1260,520 1300,470 1380,485 C1440,495 1480,540 1600,505 L1600,900 L0,900 Z" fill="#341615" opacity="0.5" filter="url(#ambRoughA)"></path>
+    </g>
+    <g class="amb-near">
+        <path d="M0,780 C90,750 160,730 240,760 C310,785 360,740 450,750 C520,758 570,720 650,735 C730,750 780,710 860,725 C930,738 980,700 1060,715 C1130,728 1180,700 1260,720 C1330,738 1380,710 1460,730 C1520,744 1560,760 1600,745 L1600,900 L0,900 Z" fill="#1c1310" opacity="0.75" filter="url(#ambRoughA)"></path>
+    </g>
+</svg>
+<div id="ambient-embers" aria-hidden="true">
+    <span class="amb-ember" style="left:2%; width:3px; height:3px; animation-duration:16s; animation-delay:0s;"></span>
+    <span class="amb-ember" style="left:5%; width:2px; height:2px; animation-duration:13s; animation-delay:4s;"></span>
+    <span class="amb-ember" style="left:9%; width:3px; height:3px; animation-duration:19s; animation-delay:8s;"></span>
+    <span class="amb-ember" style="left:14%; width:2px; height:2px; animation-duration:15s; animation-delay:2s;"></span>
+    <span class="amb-ember" style="left:20%; width:4px; height:4px; animation-duration:21s; animation-delay:6s;"></span>
+    <span class="amb-ember" style="left:27%; width:2px; height:2px; animation-duration:14s; animation-delay:10s;"></span>
+    <span class="amb-ember" style="left:35%; width:3px; height:3px; animation-duration:18s; animation-delay:1s;"></span>
+    <span class="amb-ember" style="left:42%; width:2px; height:2px; animation-duration:12s; animation-delay:7s;"></span>
+    <span class="amb-ember" style="left:58%; width:3px; height:3px; animation-duration:20s; animation-delay:3s;"></span>
+    <span class="amb-ember" style="left:65%; width:2px; height:2px; animation-duration:14s; animation-delay:9s;"></span>
+    <span class="amb-ember" style="left:73%; width:4px; height:4px; animation-duration:22s; animation-delay:5s;"></span>
+    <span class="amb-ember" style="left:80%; width:2px; height:2px; animation-duration:13s; animation-delay:11s;"></span>
+    <span class="amb-ember" style="left:86%; width:3px; height:3px; animation-duration:17s; animation-delay:2s;"></span>
+    <span class="amb-ember" style="left:91%; width:2px; height:2px; animation-duration:15s; animation-delay:8s;"></span>
+    <span class="amb-ember" style="left:95%; width:3px; height:3px; animation-duration:19s; animation-delay:4s;"></span>
+    <span class="amb-ember" style="left:98%; width:2px; height:2px; animation-duration:16s; animation-delay:12s;"></span>
+</div>
+<div class="layout">
+    <!-- FIXED NAVIGATION -->
+    <nav class="fixed-nav visible" id="fixedNav">
+        <div class="nav-container">
+            <a href="index.html#hero" class="nav-logo"><img src="./public/logo.png" alt="Nishal Thomas logo" class="nav-logo-img"></a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="writings.html" class="nav-link">Blogs/Writings</a>
+                <a href="./public/Nishal_CV.pdf" class="nav-link" target="_blank">CV</a>
             </div>
+        </div>
+    </nav>
 
-        </section>
+    <!-- MAIN CONTENT SECTIONS -->
+    <main class="content-wrapper">
+        <div class="container">
+            <section id="projects">
+                <div class="study-scene" aria-hidden="true">
+                    <svg viewBox="0 0 900 420" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="studyGradient" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#1c130f"></stop>
+                                <stop offset="55%" stop-color="#241a14"></stop>
+                                <stop offset="63%" stop-color="#2e2014"></stop>
+                                <stop offset="100%" stop-color="#1a1310"></stop>
+                            </linearGradient>
+                            <linearGradient id="windowSky" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#180c0c"></stop>
+                                <stop offset="100%" stop-color="#3a1410"></stop>
+                            </linearGradient>
+                            <radialGradient id="studyVignette" cx="50%" cy="45%" r="75%">
+                                <stop offset="45%" stop-color="#0c0505" stop-opacity="0"></stop>
+                                <stop offset="100%" stop-color="#0c0505" stop-opacity="0.6"></stop>
+                            </radialGradient>
+                            <filter id="studyRough" x="-10%" y="-10%" width="120%" height="120%">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.02 0.04" numOctaves="2" seed="11" result="turbS"></feTurbulence>
+                                <feDisplacementMap in="SourceGraphic" in2="turbS" scale="6" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                            </filter>
+                            <filter id="studyGlow" x="-150%" y="-150%" width="400%" height="400%">
+                                <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+                            </filter>
+                            <filter id="studyGrain">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noiseS"></feTurbulence>
+                                <feColorMatrix in="noiseS" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+                            </filter>
+                        </defs>
+
+                        <rect x="0" y="0" width="900" height="420" fill="url(#studyGradient)"></rect>
+
+                        <!-- wall weathering -->
+                        <ellipse cx="150" cy="70" rx="60" ry="34" fill="#2c221a" opacity="0.3" filter="url(#studyRough)"></ellipse>
+                        <ellipse cx="560" cy="110" rx="70" ry="30" fill="#140e0b" opacity="0.35" filter="url(#studyRough)"></ellipse>
+
+                        <!-- cobweb -->
+                        <g stroke="#4a4030" stroke-width="1" fill="none" opacity="0.35">
+                            <path d="M0,0 L50,50 M0,20 L36,54 M0,40 L22,58 M20,0 L54,36 M40,0 L58,22"></path>
+                            <path d="M4,4 Q26,26 50,50 M4,4 Q14,34 22,58 M4,4 Q34,14 58,22"></path>
+                        </g>
+
+                        <!-- window onto the night -->
+                        <g filter="url(#studyRough)">
+                            <path d="M615,160 L615,60 A90,45 0 0 1 805,60 L805,160 Z" fill="url(#windowSky)" stroke="#100a08" stroke-width="6"></path>
+                        </g>
+                        <circle cx="742" cy="82" r="11" fill="#6b5040" opacity="0.8"></circle>
+                        <line x1="710" y1="55" x2="710" y2="160" stroke="#100a08" stroke-width="3"></line>
+                        <line x1="615" y1="110" x2="805" y2="110" stroke="#100a08" stroke-width="3"></line>
+
+                        <!-- hanging lantern -->
+                        <line x1="430" y1="0" x2="430" y2="72" stroke="#221a12" stroke-width="2"></line>
+                        <ellipse cx="430" cy="98" rx="22" ry="24" fill="#c9703a" opacity="0.55" filter="url(#studyGlow)" class="glow-flicker"></ellipse>
+                        <rect x="414" y="72" width="32" height="38" rx="3" fill="#1c140f" stroke="#0e0a08" stroke-width="1.5"></rect>
+                        <rect x="420" y="80" width="20" height="22" rx="2" fill="#e2a35a" opacity="0.85" class="glow-flicker"></rect>
+
+                        <!-- rim light where the desk meets the wall -->
+                        <line x1="0" y1="168" x2="900" y2="168" stroke="#8a4a2a" stroke-width="1.5" stroke-opacity="0.3"></line>
+
+                        <!-- a drawer -->
+                        <rect x="110" y="230" width="120" height="66" rx="4" fill="#140e0b" stroke="#0a0605" stroke-width="2" filter="url(#studyRough)"></rect>
+                        <circle cx="170" cy="263" r="5" fill="#0a0605"></circle>
+
+                        <!-- stack of books -->
+                        <g filter="url(#studyRough)">
+                            <rect x="758" y="248" width="84" height="16" rx="2" fill="#3a1e18" transform="rotate(-2 800 256)"></rect>
+                            <rect x="762" y="234" width="78" height="16" rx="2" fill="#241a14" transform="rotate(1.5 800 242)"></rect>
+                            <rect x="756" y="220" width="80" height="16" rx="2" fill="#4a2418" transform="rotate(-1 800 228)"></rect>
+                        </g>
+
+                        <rect x="0" y="0" width="900" height="420" filter="url(#studyGrain)" opacity="0.07" style="mix-blend-mode: overlay"></rect>
+                        <rect x="0" y="0" width="900" height="420" fill="url(#studyVignette)"></rect>
+                    </svg>
+                </div>
+
+                <h1 class="heading"><i class="fa-solid fa-diagram-project heading-icon"></i>Projects</h1>
+
+                <div class="project-item">
+                    <h2>Step-Free Arithmetic Transformers</h2>
+
+                    <div class="project-meta">
+                        <p class="project-subtitle">Mechanistic Interpretability Study</p>
+                        <p class="project-links">
+                            <a href="https://github.com/Nishal14/Step-free-arithmetic-transformers" target="_blank">GitHub</a> •
+                            <a href="https://nishal14.substack.com/p/intro-to-mechanistic-interpretability" target="_blank">Writeup</a>
+                        </p>
+                    </div>
+
+                    <p class="text">
+                        Built a reproducible research framework for training compact arithmetic transformers
+                        (0.66M to 10M parameters) on hierarchical mathematical reasoning tasks using PyTorch and
+                        mixed-precision training. Applied mechanistic interpretability techniques, including
+                        attention-head ablation, linear probing, and out-of-distribution evaluation, to identify
+                        parenthesis-sensitive computation circuits underlying arithmetic reasoning.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <h2>Mapping Hallucinations in Tiny Aya</h2>
+
+                    <div class="project-meta">
+                        <p class="project-subtitle">Multilingual Hallucination Detection Study</p>
+                    </div>
+
+                    <p class="text">
+                        Participated in Expedition Tiny Aya, a global research initiative by Cohere Labs,
+                        collaborating within a five-member international team to investigate multilingual
+                        hallucinations in Tiny Aya models. Applied black-box metrics (Hallucination Rate,
+                        Self-Consistency, Variance, Cross-Model Disagreement, Prompt Sensitivity Score, etc.)
+                        alongside white-box methods to detect hallucination signals using Python-based pipelines.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <h2>Aletheia</h2>
+
+                    <div class="project-meta">
+                        <p class="project-subtitle">Evidence-Grounded LLM Assistant</p>
+                        <p class="project-links">
+                            <a href="https://github.com/Nishal14/Aletheia" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+
+                    <p class="text">
+                        Engineered a transparent retrieval-augmented reasoning pipeline using techniques from Loki
+                        (claim decomposition), LM-Polygraph (verbalized confidence estimation), FIRE (adaptive
+                        retrieval), and OpenFactCheck (evidence-grounded verification), integrating them into a
+                        unified FastAPI, Qdrant, Ollama, and Next.js system. Developed a self-enriching RAG
+                        architecture that automatically retrieves and indexes arXiv and Wikipedia content when
+                        retrieval coverage is insufficient, enabling continual expansion of the local knowledge base.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <h2>Grokking Feasibility Boundaries in Transformers</h2>
+
+                    <div class="project-meta">
+                        <p class="project-subtitle">Generalization Dynamics Study</p>
+                        <p class="project-links">
+                            <a href="https://github.com/Nishal14/Grokking-boundaries" target="_blank">GitHub</a> •
+                            <a href="https://nishal14.substack.com/p/mapping-the-feasibility-boundary" target="_blank">Writeup</a>
+                        </p>
+                    </div>
+
+                    <p class="text">
+                        Constructed controlled interpolation–extrapolation benchmarks for modular arithmetic to
+                        isolate the effect of train–test overlap on grokking behaviour in compact transformer
+                        models. Investigated delayed generalization through representation geometry, representation
+                        rank collapse, and attention entropy, identifying empirical boundaries for grokking under
+                        varying supervision regimes.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <h2>Continuum <span class="project-tag">K2-Think Hackathon</span></h2>
+
+                    <div class="project-meta">
+                        <p class="project-subtitle">AI Safety Infrastructure</p>
+                        <p class="project-links">
+                            <a href="https://github.com/Nishal14/Continuum" target="_blank">GitHub</a>
+                        </p>
+                    </div>
+
+                    <p class="text">
+                        Designed an AI safety system for detecting epistemic drift and contradiction accumulation
+                        across long-running LLM conversations through cumulative stance tracking and dependency
+                        analysis. Implemented a hybrid verification pipeline combining symbolic heuristics with
+                        external reasoning models to identify, validate, and visualize conversational inconsistencies.
+                    </p>
+                </div>
+            </section>
+        </div>
     </main>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <p class="footer-copy">© 2025 Nirmal Thomas. Powered by Jekyll & AcademicPages, a fork of Minimal Mistakes.</p>
+        <p class="footer-copy">© 2026 Nishal Thomas.</p>
     </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <i class="fas fa-sun"></i>
-    </button>
 </div>
 
-<script>
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const layout = document.querySelector('.layout');
-    const icon = themeToggle.querySelector('i');
-
-    // Check for saved theme preference or default to dark theme
-    const currentTheme = localStorage.getItem('theme') || 'dark';
-
-    // Apply the saved or default theme
-    if (currentTheme === 'light') {
-        layout.classList.add('light-theme');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-    }
-
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-        layout.classList.toggle('light-theme');
-
-        // Update icon
-        if (layout.classList.contains('light-theme')) {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-        } else {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-</script>
+<script src="main.js"></script>
 </body>
 </html>

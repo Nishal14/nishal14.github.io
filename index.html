@@ -4,344 +4,454 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nishal Thomas</title>
+    <meta name="description" content="Nishal Thomas — AI interpretability research, generalization dynamics, and mechanistic understanding of neural networks.">
+    <meta property="og:title" content="Nishal Thomas">
+    <meta property="og:description" content="AI interpretability research, generalization dynamics, and mechanistic understanding of neural networks.">
+    <meta property="og:image" content="./public/logo.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="./public/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <!-- Icons (React icons converted to Font Awesome CDN equivalents) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-    <!-- Three.js library (r149 - last version before deprecation warnings) -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 </head>
 <body>
+<script>
+    // Resolve intro/skip state synchronously, before the overlay or hero
+    // markup below is even parsed — avoids any flash of the overlay when
+    // arriving via index.html#hero (e.g. clicking the logo from another page).
+    if (window.location.hash === '#hero') {
+        document.documentElement.classList.add('skip-intro');
+        history.replaceState(null, '', window.location.pathname + window.location.search);
+    } else {
+        document.body.classList.add('intro-pending');
+    }
+</script>
+<div id="intro-overlay" role="button" tabindex="0" aria-label="Enter site">
+    <div class="intro-ember">
+        <span class="ember-core"></span>
+        <span class="ember-spark spark-1"></span>
+        <span class="ember-spark spark-2"></span>
+        <span class="ember-spark spark-3"></span>
+    </div>
+    <p class="intro-name">Nishal Thomas</p>
+    <p class="intro-prompt">click to enter</p>
+</div>
+<svg id="ambient-landscape" aria-hidden="true" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+    <defs>
+        <filter id="ambRoughA" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="7" result="ambTurbA"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="ambTurbA" scale="16" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+    </defs>
+    <g class="amb-far">
+        <path d="M0,600 C80,560 140,520 220,545 C300,570 340,500 420,480 C480,465 520,510 580,530 C650,555 700,470 780,460 C830,455 860,500 920,510 C970,518 990,470 1060,455 C1110,445 1140,480 1200,500 C1260,520 1300,470 1380,485 C1440,495 1480,540 1600,505 L1600,900 L0,900 Z" fill="#341615" opacity="0.5" filter="url(#ambRoughA)"></path>
+    </g>
+    <g class="amb-near">
+        <path d="M0,780 C90,750 160,730 240,760 C310,785 360,740 450,750 C520,758 570,720 650,735 C730,750 780,710 860,725 C930,738 980,700 1060,715 C1130,728 1180,700 1260,720 C1330,738 1380,710 1460,730 C1520,744 1560,760 1600,745 L1600,900 L0,900 Z" fill="#1c1310" opacity="0.75" filter="url(#ambRoughA)"></path>
+    </g>
+</svg>
+<div id="ambient-embers" aria-hidden="true">
+    <span class="amb-ember" style="left:2%; width:3px; height:3px; animation-duration:16s; animation-delay:0s;"></span>
+    <span class="amb-ember" style="left:5%; width:2px; height:2px; animation-duration:13s; animation-delay:4s;"></span>
+    <span class="amb-ember" style="left:9%; width:3px; height:3px; animation-duration:19s; animation-delay:8s;"></span>
+    <span class="amb-ember" style="left:14%; width:2px; height:2px; animation-duration:15s; animation-delay:2s;"></span>
+    <span class="amb-ember" style="left:20%; width:4px; height:4px; animation-duration:21s; animation-delay:6s;"></span>
+    <span class="amb-ember" style="left:27%; width:2px; height:2px; animation-duration:14s; animation-delay:10s;"></span>
+    <span class="amb-ember" style="left:35%; width:3px; height:3px; animation-duration:18s; animation-delay:1s;"></span>
+    <span class="amb-ember" style="left:42%; width:2px; height:2px; animation-duration:12s; animation-delay:7s;"></span>
+    <span class="amb-ember" style="left:58%; width:3px; height:3px; animation-duration:20s; animation-delay:3s;"></span>
+    <span class="amb-ember" style="left:65%; width:2px; height:2px; animation-duration:14s; animation-delay:9s;"></span>
+    <span class="amb-ember" style="left:73%; width:4px; height:4px; animation-duration:22s; animation-delay:5s;"></span>
+    <span class="amb-ember" style="left:80%; width:2px; height:2px; animation-duration:13s; animation-delay:11s;"></span>
+    <span class="amb-ember" style="left:86%; width:3px; height:3px; animation-duration:17s; animation-delay:2s;"></span>
+    <span class="amb-ember" style="left:91%; width:2px; height:2px; animation-duration:15s; animation-delay:8s;"></span>
+    <span class="amb-ember" style="left:95%; width:3px; height:3px; animation-duration:19s; animation-delay:4s;"></span>
+    <span class="amb-ember" style="left:98%; width:2px; height:2px; animation-duration:16s; animation-delay:12s;"></span>
+</div>
 <div class="layout">
-    <!-- Scroll-based overlay for background fade -->
-    <div class="background-overlay" id="backgroundOverlay"></div>
-
-    <!-- CINEMATIC HERO SECTION -->
+    <!-- THE OBSERVATORY (HERO) -->
     <section class="hero" id="hero">
+        <div class="observatory-scene" aria-hidden="true">
+            <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+                <defs>
+                    <linearGradient id="skyGradient" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#0a0505"></stop>
+                        <stop offset="30%" stop-color="#240a0a"></stop>
+                        <stop offset="58%" stop-color="#3a1410"></stop>
+                        <stop offset="82%" stop-color="#2c1610"></stop>
+                        <stop offset="100%" stop-color="#1c120c"></stop>
+                    </linearGradient>
+                    <radialGradient id="moonHalo" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stop-color="#6b1c14" stop-opacity="0.28"></stop>
+                        <stop offset="60%" stop-color="#6b1c14" stop-opacity="0.08"></stop>
+                        <stop offset="100%" stop-color="#6b1c14" stop-opacity="0"></stop>
+                    </radialGradient>
+                    <radialGradient id="moonGradient" cx="40%" cy="38%" r="62%">
+                        <stop offset="0%" stop-color="#8a7458"></stop>
+                        <stop offset="100%" stop-color="#3a1c16"></stop>
+                    </radialGradient>
+                    <linearGradient id="towerShade" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#4a3e36"></stop>
+                        <stop offset="100%" stop-color="#1c1512"></stop>
+                    </linearGradient>
+                    <linearGradient id="skylineShade" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#2c2418"></stop>
+                        <stop offset="100%" stop-color="#120e0a"></stop>
+                    </linearGradient>
+                    <linearGradient id="groundShade" x1="0" y1="0" x2="0" y2="1">
+                        <stop offset="0%" stop-color="#20100c"></stop>
+                        <stop offset="100%" stop-color="#0a0404"></stop>
+                    </linearGradient>
+                    <radialGradient id="vignette" cx="50%" cy="55%" r="72%">
+                        <stop offset="45%" stop-color="#0c0505" stop-opacity="0"></stop>
+                        <stop offset="100%" stop-color="#0c0505" stop-opacity="0.72"></stop>
+                    </radialGradient>
+                    <filter id="softBlur" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur stdDeviation="10"></feGaussianBlur>
+                    </filter>
+                    <filter id="glowBlur" x="-150%" y="-150%" width="400%" height="400%">
+                        <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+                    </filter>
+                    <filter id="grainFilter">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noise"></feTurbulence>
+                        <feColorMatrix in="noise" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+                    </filter>
+                    <filter id="roughEdgeA" x="-10%" y="-10%" width="120%" height="120%">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="7" result="turbA"></feTurbulence>
+                        <feDisplacementMap in="SourceGraphic" in2="turbA" scale="16" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                    </filter>
+                    <filter id="roughEdgeB" x="-10%" y="-10%" width="120%" height="120%">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.015 0.025" numOctaves="2" seed="23" result="turbB"></feTurbulence>
+                        <feDisplacementMap in="SourceGraphic" in2="turbB" scale="12" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                    </filter>
+                    <filter id="roughEdgeSoft" x="-15%" y="-15%" width="130%" height="130%">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.02 0.05" numOctaves="2" seed="4" result="turbC"></feTurbulence>
+                        <feDisplacementMap in="SourceGraphic" in2="turbC" scale="8" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                    </filter>
+                    <linearGradient id="cometTail" x1="100%" y1="100%" x2="0%" y2="0%">
+                        <stop offset="0%" stop-color="#f0d9a8" stop-opacity="0.9"></stop>
+                        <stop offset="100%" stop-color="#f0d9a8" stop-opacity="0"></stop>
+                    </linearGradient>
+                </defs>
+
+                <rect x="0" y="0" width="1600" height="900" fill="url(#skyGradient)"></rect>
+
+                <g class="stars" fill="#d8cdb8">
+                    <circle cx="120" cy="90" r="1.4" opacity="0.7" class="twinkle" style="animation-delay:0s"></circle>
+                    <circle cx="240" cy="150" r="1" opacity="0.5"></circle>
+                    <circle cx="360" cy="70" r="1.6" opacity="0.6" class="twinkle" style="animation-delay:0.8s"></circle>
+                    <circle cx="520" cy="130" r="1" opacity="0.45"></circle>
+                    <circle cx="640" cy="60" r="1.3" opacity="0.6" class="twinkle" style="animation-delay:1.6s"></circle>
+                    <circle cx="760" cy="160" r="1" opacity="0.4"></circle>
+                    <circle cx="60" cy="220" r="1.2" opacity="0.5" class="twinkle" style="animation-delay:2.4s"></circle>
+                    <circle cx="900" cy="90" r="1.4" opacity="0.55"></circle>
+                    <circle cx="1420" cy="110" r="1.2" opacity="0.5" class="twinkle" style="animation-delay:1.2s"></circle>
+                    <circle cx="1550" cy="200" r="1" opacity="0.4"></circle>
+                    <circle cx="1000" cy="260" r="1" opacity="0.35" class="twinkle" style="animation-delay:0.4s"></circle>
+                    <circle cx="1300" cy="300" r="1.1" opacity="0.4"></circle>
+                </g>
+
+                <g class="birds" stroke="#2a1814" stroke-width="2" fill="none" opacity="0.4" stroke-linecap="round">
+                    <path d="M320,175 q9,-11 18,0 q9,-11 18,0"></path>
+                    <g class="bird-fly">
+                        <path d="M760,140 q7,-9 14,0 q7,-9 14,0"></path>
+                    </g>
+                </g>
+
+                <g class="shooting-star">
+                    <path class="comet-tail-flare" d="M0,0 L-190,-72 L-172,-58 Z" fill="url(#cometTail)"></path>
+                    <circle class="comet-outer-flare" cx="0" cy="0" r="24" fill="#e2a35a" filter="url(#glowBlur)"></circle>
+                    <circle class="comet-mid-flare" cx="0" cy="0" r="11" fill="#f0d9a8" filter="url(#glowBlur)"></circle>
+                    <circle class="comet-body" cx="0" cy="0" r="7" fill="#f0d9a8"></circle>
+                    <circle class="comet-hot-core" cx="0" cy="0" r="4" fill="#fffaf0"></circle>
+                    <circle class="comet-sun-core" cx="0" cy="0" r="1.6" fill="#ffffff"></circle>
+                </g>
+
+                <circle cx="1180" cy="190" r="140" fill="url(#moonHalo)"></circle>
+                <circle cx="1180" cy="190" r="44" fill="url(#moonGradient)" filter="url(#roughEdgeSoft)"></circle>
+                <ellipse cx="1166" cy="178" rx="9" ry="7" fill="#7a4838" opacity="0.25"></ellipse>
+                <ellipse cx="1193" cy="203" rx="6" ry="5" fill="#7a4838" opacity="0.2"></ellipse>
+                <ellipse cx="1176" cy="202" rx="4" ry="3" fill="#7a4838" opacity="0.18"></ellipse>
+
+                <!-- a cloud drifting just in front of the moon -->
+                <g class="cloud cloud-moon" filter="url(#roughEdgeA)">
+                    <ellipse cx="1150" cy="175" rx="60" ry="18" fill="#6b5048" opacity="0.5"></ellipse>
+                    <ellipse cx="1195" cy="200" rx="70" ry="16" fill="#6b5048" opacity="0.4"></ellipse>
+                </g>
+
+                <g class="cloud cloud-a" filter="url(#roughEdgeA)">
+                    <ellipse cx="280" cy="230" rx="120" ry="26" fill="#6b5048" opacity="0.4"></ellipse>
+                    <ellipse cx="360" cy="215" rx="80" ry="18" fill="#6b5048" opacity="0.3"></ellipse>
+                </g>
+                <g class="cloud cloud-b" filter="url(#roughEdgeB)">
+                    <ellipse cx="720" cy="195" rx="140" ry="22" fill="#6b5048" opacity="0.32"></ellipse>
+                </g>
+
+                <g class="fog fog-a" filter="url(#softBlur)">
+                    <ellipse cx="800" cy="560" rx="900" ry="55" fill="#7a5850" opacity="0.14"></ellipse>
+                </g>
+
+                <!-- far ridge: two overlapping washes for painterly bleed, blood-and-rust toned -->
+                <g class="parallax-far">
+                    <path class="skyline-far" filter="url(#roughEdgeA)" d="M0,600 C80,560 140,520 220,545 C300,570 340,500 420,480 C480,465 520,510 580,530 C650,555 700,470 780,460 C830,455 860,500 920,510 C970,518 990,470 1060,455 C1110,445 1140,480 1200,500 C1260,520 1300,470 1380,485 C1440,495 1480,540 1600,505 L1600,900 L0,900 Z" fill="#341615" opacity="0.85" stroke="#160a0a" stroke-width="2" stroke-opacity="0.5"></path>
+                    <path class="skyline-far-wash" filter="url(#roughEdgeB)" d="M4,606 C86,566 144,524 226,551 C304,576 346,504 424,484 C486,469 524,514 584,534 C654,559 704,474 784,464 C834,459 864,504 924,514 C974,522 994,474 1064,459 C1114,449 1144,484 1204,504 C1264,524 1304,474 1384,489 C1444,499 1484,544 1600,509 L1600,900 L0,900 Z" fill="#4a241c" opacity="0.35"></path>
+                </g>
+
+                <g class="fog fog-b" filter="url(#softBlur)">
+                    <ellipse cx="800" cy="700" rx="1000" ry="65" fill="#7a5850" opacity="0.18"></ellipse>
+                </g>
+
+                <g class="fog fog-c" filter="url(#softBlur)">
+                    <ellipse cx="800" cy="810" rx="850" ry="35" fill="#7a5850" opacity="0.12"></ellipse>
+                </g>
+
+                <!-- rolling near hills, painterly silhouette -->
+                <g class="parallax-near">
+                    <path class="skyline-near" filter="url(#roughEdgeA)" d="M0,780 C90,750 160,730 240,760 C310,785 360,740 450,750 C520,758 570,720 650,735 C730,750 780,710 860,725 C930,738 980,700 1060,715 C1130,728 1180,700 1260,720 C1330,738 1380,710 1460,730 C1520,744 1560,760 1600,745 L1600,900 L0,900 Z" fill="url(#skylineShade)" stroke="#4a1e18" stroke-width="2.5" stroke-opacity="0.6"></path>
+                </g>
+
+                <!-- small distant tree clusters along the ridge, decayed -->
+                <g class="treeline" fill="#181410" opacity="0.85" filter="url(#roughEdgeB)">
+                    <ellipse cx="150" cy="748" rx="34" ry="20"></ellipse>
+                    <ellipse cx="500" cy="738" rx="30" ry="18"></ellipse>
+                    <ellipse cx="1300" cy="712" rx="36" ry="20"></ellipse>
+                    <ellipse cx="1550" cy="742" rx="28" ry="16"></ellipse>
+                </g>
+
+                <!-- the observatory: old, warm stone -->
+                <g class="observatory">
+                    <rect x="660" y="580" width="80" height="190" fill="url(#towerShade)" stroke="#120a08" stroke-width="2.5" filter="url(#roughEdgeSoft)"></rect>
+
+                    <!-- weathering / blood-stained stone patches -->
+                    <ellipse cx="678" cy="640" rx="16" ry="22" fill="#5a2420" opacity="0.28"></ellipse>
+                    <ellipse cx="720" cy="700" rx="14" ry="26" fill="#3a1c18" opacity="0.25"></ellipse>
+                    <ellipse cx="695" cy="750" rx="20" ry="16" fill="#5a2420" opacity="0.22"></ellipse>
+
+                    <rect x="736" y="580" width="4" height="190" fill="#a89888" opacity="0.28"></rect>
+                    <path d="M660,580 A40,36 0 0 1 740,580 Z" fill="#120a08" stroke="#120a08" stroke-width="2" filter="url(#roughEdgeSoft)"></path>
+
+                    <!-- roof slit, subtly opens as the observatory awakens -->
+                    <rect class="roof-slit" x="696" y="548" width="8" height="30" rx="3" fill="#e2a35a"></rect>
+                    <ellipse class="roof-glow" cx="700" cy="558" rx="26" ry="20" fill="#c9703a" filter="url(#glowBlur)"></ellipse>
+
+                    <!-- telescope, resting low, rising to watch the sky during the awaken phase -->
+                    <g transform="translate(700,562)">
+                        <g class="telescope-arm">
+                            <rect x="0" y="-4" width="52" height="8" rx="3" fill="#4a3e36" stroke="#1c1512" stroke-width="1"></rect>
+                            <circle cx="52" cy="0" r="5" fill="#1c1512"></circle>
+                        </g>
+                    </g>
+
+                    <ellipse class="window-brighten" cx="700" cy="605" rx="24" ry="24" fill="#e2a35a" filter="url(#glowBlur)"></ellipse>
+
+                    <!-- dead ivy climbing the near side -->
+                    <path d="M664,770 C660,740 672,720 664,695 C658,672 670,655 663,630" stroke="#4a4020" stroke-width="3" fill="none" opacity="0.7" stroke-linecap="round"></path>
+                    <circle cx="663" cy="700" r="5" fill="#4a4020" opacity="0.6"></circle>
+                    <circle cx="667" cy="660" r="4" fill="#5a5028" opacity="0.6"></circle>
+                    <circle cx="660" cy="730" r="4.5" fill="#5a5028" opacity="0.6"></circle>
+                    <circle cx="666" cy="755" r="4" fill="#4a4020" opacity="0.55"></circle>
+
+                    <g class="window glow-flicker">
+                        <circle cx="700" cy="605" r="14" fill="#c9703a" opacity="0.65" filter="url(#glowBlur)"></circle>
+                        <circle cx="700" cy="605" r="9" fill="#e2a35a"></circle>
+                        <circle cx="700" cy="605" r="12" fill="none" stroke="#241a16" stroke-width="2" opacity="0.6"></circle>
+                    </g>
+                    <g class="window glow-flicker" style="animation-delay:1.1s">
+                        <rect x="674" y="626" width="20" height="56" rx="8" fill="none" stroke="#241a16" stroke-width="2" opacity="0.6"></rect>
+                        <rect x="676" y="628" width="16" height="52" rx="8" fill="#c9703a" opacity="0.65" filter="url(#glowBlur)"></rect>
+                        <rect x="679" y="630" width="10" height="48" rx="5" fill="#e2a35a"></rect>
+                    </g>
+                    <g class="window glow-flicker" style="animation-delay:2.2s">
+                        <rect x="706" y="626" width="20" height="56" rx="8" fill="none" stroke="#241a16" stroke-width="2" opacity="0.6"></rect>
+                        <rect x="708" y="628" width="16" height="52" rx="8" fill="#8a3a2a" opacity="0.7" filter="url(#glowBlur)"></rect>
+                        <rect x="711" y="630" width="10" height="48" rx="5" fill="#b85a3a"></rect>
+                    </g>
+                </g>
+
+                <!-- foreground ground -->
+                <path class="ground-near" filter="url(#roughEdgeA)" d="M0,860 L80,845 L180,858 L300,842 L420,860 L560,844 L700,862 L840,846 L980,860 L1120,844 L1260,862 L1400,846 L1600,858 L1600,900 L0,900 Z" fill="url(#groundShade)" stroke="#0a0404" stroke-width="2" stroke-opacity="0.6"></path>
+
+                <!-- a worn path winding up toward the observatory -->
+                <path class="path-winding" filter="url(#roughEdgeB)" d="M760,900 C740,860 770,830 745,800 C725,778 705,782 700,772 L680,774 C688,788 706,786 726,808 C750,834 722,862 740,900 Z" fill="#6b4438" opacity="0.25"></path>
+
+                <!-- rocks -->
+                <ellipse cx="350" cy="862" rx="18" ry="10" fill="#3a342c" opacity="0.9" stroke="#120e0a" stroke-width="1.5" filter="url(#roughEdgeB)"></ellipse>
+                <ellipse cx="1150" cy="850" rx="15" ry="9" fill="#3a342c" opacity="0.85" stroke="#120e0a" stroke-width="1.5" filter="url(#roughEdgeB)"></ellipse>
+
+                <!-- foreground trees: rounded, painterly canopies, decayed -->
+                <g class="tree" transform="translate(150,858)">
+                    <rect x="-3" y="-6" width="6" height="20" fill="#241c14"></rect>
+                    <g filter="url(#roughEdgeB)" stroke="#100c08" stroke-width="1.5">
+                        <circle cx="-14" cy="-30" r="16" fill="#3a3420"></circle>
+                        <circle cx="10" cy="-34" r="18" fill="#4a4020"></circle>
+                        <circle cx="-2" cy="-46" r="17" fill="#3a3420"></circle>
+                    </g>
+                </g>
+                <g class="tree" transform="translate(215,862) scale(0.65)">
+                    <rect x="-3" y="-6" width="6" height="20" fill="#241c14"></rect>
+                    <g filter="url(#roughEdgeB)" stroke="#100c08" stroke-width="1.5">
+                        <circle cx="-14" cy="-30" r="16" fill="#3a3420"></circle>
+                        <circle cx="10" cy="-34" r="18" fill="#4a4020"></circle>
+                        <circle cx="-2" cy="-46" r="17" fill="#3a3420"></circle>
+                    </g>
+                </g>
+                <g class="tree" transform="translate(1540,856) scale(0.8)">
+                    <rect x="-3" y="-6" width="6" height="20" fill="#241c14"></rect>
+                    <g filter="url(#roughEdgeB)" stroke="#100c08" stroke-width="1.5">
+                        <circle cx="-14" cy="-30" r="16" fill="#3a3420"></circle>
+                        <circle cx="10" cy="-34" r="18" fill="#4a4020"></circle>
+                        <circle cx="-2" cy="-46" r="17" fill="#3a3420"></circle>
+                    </g>
+                </g>
+                <g class="tree" transform="translate(1485,860) scale(0.5)">
+                    <rect x="-3" y="-6" width="6" height="20" fill="#241c14"></rect>
+                    <g filter="url(#roughEdgeB)" stroke="#100c08" stroke-width="1.5">
+                        <circle cx="-14" cy="-30" r="16" fill="#3a3420"></circle>
+                        <circle cx="10" cy="-34" r="18" fill="#4a4020"></circle>
+                        <circle cx="-2" cy="-46" r="17" fill="#3a3420"></circle>
+                    </g>
+                </g>
+
+                <!-- swaying grass tufts, dried -->
+                <g class="wind-gust">
+                    <g class="grass" stroke="#5a4e38" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.75">
+                        <g class="grass-blade" transform="translate(40,868)"><path d="M0,0 C-3,-12 3,-18 0,-28"></path></g>
+                        <g class="grass-blade" transform="translate(90,850)"><path d="M0,0 C-3,-12 3,-18 0,-28"></path></g>
+                        <g class="grass-blade" transform="translate(260,845)"><path d="M0,0 C-3,-12 3,-18 0,-28"></path></g>
+                        <g class="grass-blade" transform="translate(600,846)"><path d="M0,0 C-3,-12 3,-18 0,-28"></path></g>
+                        <g class="grass-blade" transform="translate(900,864)"><path d="M0,0 C-3,-12 3,-18 0,-28"></path></g>
+                        <g class="grass-blade" transform="translate(1180,846)"><path d="M0,0 C-3,-12 3,-18 0,-28"></path></g>
+                        <g class="grass-blade" transform="translate(1360,850)"><path d="M0,0 C-3,-12 3,-18 0,-28"></path></g>
+                        <g class="grass-blade" transform="translate(1590,862)"><path d="M0,0 C-3,-12 3,-18 0,-28"></path></g>
+                    </g>
+                </g>
+
+                <!-- a few leaves, blown across the scene during the wind phase -->
+                <g class="leaf leaf-1" fill="#5a4e30" opacity="0">
+                    <path d="M0,0 C6,-4 10,2 4,6 C0,8 -3,4 0,0 Z"></path>
+                </g>
+                <g class="leaf leaf-2" fill="#4a4020" opacity="0">
+                    <path d="M0,0 C5,-3 8,2 3,5 C0,6 -2,3 0,0 Z"></path>
+                </g>
+
+                <!-- wildflowers: bone and dried blood, not cheerful -->
+                <g transform="translate(500,866)">
+                    <circle cx="0" cy="0" r="2.5" fill="#7a2420"></circle>
+                    <circle cx="6" cy="2" r="2" fill="#5a5248"></circle>
+                    <circle cx="-5" cy="3" r="2" fill="#a89878"></circle>
+                </g>
+                <g transform="translate(1250,852)">
+                    <circle cx="0" cy="0" r="2.5" fill="#5a5248"></circle>
+                    <circle cx="6" cy="2" r="2" fill="#7a2420"></circle>
+                    <circle cx="-5" cy="3" r="2" fill="#a89878"></circle>
+                </g>
+
+                <!-- a telescope tripod and open notebook, left near the path -->
+                <g class="prop-telescope" transform="translate(1000,862)" stroke="#241a16" stroke-width="3" stroke-linecap="round">
+                    <line x1="0" y1="0" x2="-14" y2="-40"></line>
+                    <line x1="0" y1="0" x2="14" y2="-40"></line>
+                    <line x1="0" y1="0" x2="0" y2="-42"></line>
+                    <g transform="translate(0,-42) rotate(-30)">
+                        <rect x="-4" y="-26" width="8" height="30" rx="3" fill="#3a2c1e" stroke="none"></rect>
+                    </g>
+                </g>
+                <g class="prop-notebook" transform="translate(1032,870)">
+                    <path d="M-16,0 L0,-4 L16,0 L0,4 Z" fill="#a89878" opacity="0.85"></path>
+                    <line x1="-10" y1="-1" x2="-2" y2="-3" stroke="#5a4e38" stroke-width="1"></line>
+                    <line x1="2" y1="-3" x2="10" y2="-1" stroke="#5a4e38" stroke-width="1"></line>
+                </g>
+
+                <!-- low, rotting fence -->
+                <g class="fence" fill="#241c14" opacity="0.85">
+                    <rect x="26" y="866" width="112" height="4"></rect>
+                    <rect x="24" y="850" width="3" height="26"></rect>
+                    <rect x="50" y="850" width="3" height="26"></rect>
+                    <rect x="76" y="850" width="3" height="26"></rect>
+                    <rect x="102" y="850" width="3" height="26"></rect>
+                    <rect x="128" y="850" width="3" height="26"></rect>
+                </g>
+
+                <!-- weathered post with a hanging lantern -->
+                <g class="lamp-post">
+                    <rect x="1298" y="680" width="4" height="180" fill="#241c14"></rect>
+                    <line x1="1300" y1="680" x2="1300" y2="655" stroke="#241c14" stroke-width="3"></line>
+                    <rect x="1288" y="655" width="24" height="30" rx="3" fill="#160f0c" stroke="#241c14" stroke-width="1"></rect>
+                    <g class="glow-flicker" style="animation-delay:0.5s">
+                        <ellipse cx="1300" cy="670" rx="18" ry="20" fill="#c9703a" opacity="0.68" filter="url(#glowBlur)"></ellipse>
+                        <ellipse cx="1300" cy="670" rx="7" ry="9" fill="#e2a35a"></ellipse>
+                    </g>
+                </g>
+
+                <!-- fireflies (embers): a soft glow halo + a defined bright core, moving together -->
+                <g class="firefly">
+                    <circle cx="260" cy="800" r="5" fill="#c9703a" opacity="0.4" filter="url(#glowBlur)" class="drift-a"></circle>
+                    <circle cx="260" cy="800" r="1.3" fill="#f3dda0" class="drift-a"></circle>
+
+                    <circle cx="1010" cy="828" r="4.5" fill="#c9703a" opacity="0.4" filter="url(#glowBlur)" class="drift-b"></circle>
+                    <circle cx="1010" cy="828" r="1.2" fill="#f3dda0" class="drift-b"></circle>
+
+                    <circle cx="1440" cy="806" r="5" fill="#c9703a" opacity="0.4" filter="url(#glowBlur)" class="drift-c"></circle>
+                    <circle cx="1440" cy="806" r="1.3" fill="#f3dda0" class="drift-c"></circle>
+                </g>
+
+                <!-- fireflies orbiting the observatory itself, always -->
+                <g class="firefly">
+                    <circle cx="628" cy="660" r="4.6" fill="#e2a35a" opacity="0.4" filter="url(#glowBlur)" class="drift-a" style="animation-delay:0.6s"></circle>
+                    <circle cx="628" cy="660" r="1.2" fill="#f3dda0" class="drift-a" style="animation-delay:0.6s"></circle>
+
+                    <circle cx="770" cy="700" r="4.2" fill="#e2a35a" opacity="0.4" filter="url(#glowBlur)" class="drift-b" style="animation-delay:2.1s"></circle>
+                    <circle cx="770" cy="700" r="1.1" fill="#f3dda0" class="drift-b" style="animation-delay:2.1s"></circle>
+
+                    <circle cx="650" cy="740" r="4.8" fill="#e2a35a" opacity="0.4" filter="url(#glowBlur)" class="drift-c" style="animation-delay:3.4s"></circle>
+                    <circle cx="650" cy="740" r="1.3" fill="#f3dda0" class="drift-c" style="animation-delay:3.4s"></circle>
+
+                    <circle cx="720" cy="600" r="4" fill="#e2a35a" opacity="0.4" filter="url(#glowBlur)" class="drift-a" style="animation-delay:1.8s"></circle>
+                    <circle cx="720" cy="600" r="1" fill="#f3dda0" class="drift-a" style="animation-delay:1.8s"></circle>
+
+                    <circle cx="700" cy="780" r="4.4" fill="#e2a35a" opacity="0.4" filter="url(#glowBlur)" class="drift-b" style="animation-delay:4.2s"></circle>
+                    <circle cx="700" cy="780" r="1.2" fill="#f3dda0" class="drift-b" style="animation-delay:4.2s"></circle>
+                </g>
+
+                <rect x="0" y="0" width="1600" height="900" filter="url(#grainFilter)" opacity="0.08" style="mix-blend-mode: overlay"></rect>
+                <rect x="0" y="0" width="1600" height="900" fill="url(#vignette)"></rect>
+            </svg>
+        </div>
+
         <div class="hero-content">
             <h1 class="hero-title">Nishal Thomas</h1>
-            <p class="hero-subtitle">Exploring AI interpretability, generalization dynamics, and mechanistic understanding of neural networks</p>
+            <p class="hero-subtitle">AI Research · Interpretability</p>
+
             <div class="hero-links">
                 <a href="mailto:nishal.thomas44@gmail.com" class="hero-link" title="Email"><i class="fa-solid fa-envelope"></i></a>
                 <a href="https://github.com/Nishal14" target="_blank" class="hero-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
             </div>
-        </div>
-        <div class="scroll-indicator">
-            <span>scroll</span>
-            <div class="scroll-line"></div>
         </div>
     </section>
 
     <!-- FIXED NAVIGATION -->
     <nav class="fixed-nav" id="fixedNav">
         <div class="nav-container">
-            <a href="#hero" class="nav-logo"><img src="./public/logo.png" alt="NT Logo" class="nav-logo-img"></a>
+            <a href="index.html#hero" class="nav-logo"><img src="./public/logo.png" alt="Nishal Thomas logo" class="nav-logo-img"></a>
             <div class="nav-links">
-                <a href="#about" class="nav-link">About</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#writings" class="nav-link">Blogs/Writings</a>
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="writings.html" class="nav-link">Blogs/Writings</a>
                 <a href="./public/Nishal_CV.pdf" class="nav-link" target="_blank">CV</a>
             </div>
         </div>
     </nav>
 
-    <!-- MAIN CONTENT SECTIONS -->
-    <main class="content-wrapper">
-        <div class="container">
-    <section id="about">
-        <h1 class="heading">About Me</h1>
-        <p class="text">
-            Hi, I’m <strong>Nishal Thomas</strong>, a Class 11 student passionate about machine learning, neural networks, and interpretability research. I build research-oriented projects that explore how models learn structure, generalize, and process information.
-        </p>
-        <p class="text">
-            My current work spans mechanistic interpretability, generalization dynamics like grokking, and compact transformer models for algorithmic reasoning. I value reproducibility and clarity, and I enjoy turning conceptual ideas into documented, open-source research pipelines.
-        </p>
-        <p class="text">
-            Beyond project work, I write technical explainers and guides that make complex topics more accessible. I’m particularly interested in the intersection of AI, mathematics, and structured reasoning, and I’m looking to grow further in research and experimentation.
-        </p>
-        <p class="text">
-            I study at St. Mary’s Sr. Sec. School in New Delhi, India. You’ll find links to my projects, code, and writings throughout this site — feel free to explore!
-        </p>
-</section>
-
-
-
-
-            <br><br><br>
-
-<section id="projects">
-    <h1 class="heading">Projects</h1>
-
-    <div class="project-item">
-        <h2>Step-Free Arithmetic Transformers</h2>
-
-        <div class="project-meta">
-            <p class="project-subtitle">Mechanistic Interpretability Study</p>
-            <p class="project-links">
-                <a href="https://github.com/Nishal14/Step-free-arithmetic-transformers" target="_blank">GitHub</a> •
-                <a href="https://nishal14.substack.com/p/intro-to-mechanistic-interpretability" target="_blank">Writeup</a>
-            </p>
-        </div>
-
-        <p class="text">
-            A research project investigating how compact transformer models learn arithmetic reasoning.
-            The work focuses on interpretability experiments that reveal structured internal representations
-            and causal mechanisms behind model generalization.
-        </p>
-    </div>
-
-    <div class="project-item">
-        <h2>Grokking Feasibility Boundaries in Transformers</h2>
-
-        <div class="project-meta">
-            <p class="project-subtitle">Empirical Study of Generalization Dynamics</p>
-            <p class="project-links">
-                <a href="https://github.com/Nishal14/Grokking-boundaries" target="_blank">GitHub</a> •
-                <a href="https://nishal14.substack.com/p/mapping-the-feasibility-boundary" target="_blank">Writeup</a>
-            </p>
-        </div>
-
-        <p class="text">
-            An empirical exploration of delayed generalization in transformer models, mapping the
-            conditions under which grokking behavior emerges or collapses through controlled experiments.
-        </p>
-    </div>
-
-    <div class="project-item">
-        <h2>Smart Traffic Light System</h2>
-
-        <div class="project-meta">
-            <p class="project-subtitle">Computer Vision + Embedded Systems</p>
-            <p class="project-links">
-                <a href="https://github.com/Nishal14/smart-traffic-light" target="_blank">GitHub</a>
-            </p>
-        </div>
-
-        <p class="text">
-            A real-time intelligent traffic control system combining computer vision and Arduino-based
-            hardware to automate signal decisions using vehicle density detection.
-        </p>
-    </div>
-
-    <div class="project-item">
-        <h2>Continuum</h2>
-
-        <div class="project-meta">
-            <p class="project-subtitle">Chrome Extension · LLM Monitoring</p>
-            <p class="project-links">
-                <a href="https://github.com/Nishal14/Continuum" target="_blank">GitHub</a>
-            </p>
-        </div>
-
-        <p class="text">
-            A Chrome extension that monitors epistemic drift in LLM conversations, visualizing
-            contradictions and reasoning instability in real time.
-            Powered by K2 Think V2 for strategic contradiction verification and reconciliation.
-        </p>
-    </div>
-
-</section>
-
-<section id="writings">
-  <h2 class="heading">Writings</h2>
-
-  <p class="text">
-    I write technical essays and research notes about machine learning,
-    focusing on interpretability, generalization, and experimental exploration.
-  </p>
-
-  <div class="writing-item">
-    <h3>Mapping the Feasibility Boundary of Grokking in Transformers</h3>
-    <p>
-      An experimental study exploring when delayed generalization appears
-      and where it breaks down.
-    </p>
-    <a href="https://nishal14.substack.com/p/mapping-the-feasibility-boundary" target="_blank">
-      Read on Substack →
-    </a>
-  </div>
-
-  <div class="writing-item">
-    <h3>Introduction to Mechanistic Interpretability</h3>
-    <p>
-      A beginner-friendly guide to understanding how neural networks
-      represent and process structure.
-    </p>
-    <a href="https://nishal14.substack.com/p/intro-to-mechanistic-interpretability" target="_blank">
-      Read on Substack →
-    </a>
-  </div>
-</section>
-
-
-<section id="directions">
-  <h2 class="heading">Current Directions</h2>
-
-  <p class="text">
-    I’m currently exploring a few open questions in machine learning:
-  </p>
-
-  <ul class="interests-list">
-    <li>When and why small transformer models develop algorithmic structure</li>
-    <li>The boundaries of generalization in controlled experimental settings</li>
-    <li>Methods for probing internal representations in compact neural networks</li>
-    <li>Designing experiments that make model behavior easier to interpret</li>
-  </ul>
-
-  <p class="text">
-    These directions guide the projects I choose and the experiments I run.
-  </p>
-</section>
-
-<section id="contact">
-  <h2 class="heading">Contact</h2>
-
-  <p class="text">
-    If you’d like to talk about research, projects, or collaboration,
-    feel free to reach out.
-  </p>
-
-  <div class="contact-links">
-    <a href="mailto:nishal.thomas44@gmail.com">Email</a>
-    <a href="https://github.com/Nishal14" target="_blank">GitHub</a>
-    <a href="https://nishal14.substack.com" target="_blank">Substack</a>
-  </div>
-</section>
-
-
-    <!-- FOOTER - -->
-   <footer class="footer">
-       <p class="footer-title"></p>
-       <!-- <div class="social-tab-link">
-           <p>Follow:</p>
-           <div class="social-links-tab">
-               <div class="social-link"><i class="fa-brands fa-x-twitter"></i><p>Twitter</p></div>
-               <div class="social-link"><i class="fa-brands fa-linkedin-in"></i><p>LinkedIn</p></div>
-               <div class="social-link"><i class="fa-brands fa-instagram"></i><p>Instagram</p></div>
-           </div>
-       </div> -->
-       <p class="footer-copy">© 2026 Nishal Thomas.</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-copy">© 2026 Nishal Thomas.</p>
     </footer>
-
-    <!-- Theme Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-        <i class="fas fa-sun"></i>
-    </button>
 </div>
 
-<script>
-    // Theme version check - resets theme to dark default once after code change
-    const THEME_VERSION = '2.0';
-    const currentVersion = localStorage.getItem('themeVersion');
-
-    if (currentVersion !== THEME_VERSION) {
-        // Reset to dark default on version change
-        localStorage.setItem('theme', 'dark');
-        localStorage.setItem('themeVersion', THEME_VERSION);
-    }
-
-    // Theme toggle functionality
-    const themeToggle = document.getElementById('themeToggle');
-    const layout = document.querySelector('.layout');
-    const icon = themeToggle.querySelector('i');
-
-    // Check for saved theme preference
-    const savedTheme = localStorage.getItem('theme');
-
-    if (savedTheme === 'light') {
-        // User previously chose light mode - apply it
-        layout.classList.add('light-theme');
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
-    } else if (!savedTheme) {
-        // First visit - save dark as default
-        localStorage.setItem('theme', 'dark');
-    }
-    // If savedTheme is 'dark' or null, keep dark theme (no light-theme class)
-
-    // Toggle theme on button click
-    themeToggle.addEventListener('click', () => {
-        layout.classList.toggle('light-theme');
-
-        // Update icon
-        if (layout.classList.contains('light-theme')) {
-            icon.classList.remove('fa-sun');
-            icon.classList.add('fa-moon');
-            localStorage.setItem('theme', 'light');
-        } else {
-            icon.classList.remove('fa-moon');
-            icon.classList.add('fa-sun');
-            localStorage.setItem('theme', 'dark');
-        }
-    });
-
-    // Fixed navigation with cursor proximity detection
-    const fixedNav = document.getElementById('fixedNav');
-    const hero = document.getElementById('hero');
-    const threeCanvas = document.getElementById('three-background');
-    const backgroundOverlay = document.getElementById('backgroundOverlay');
-
-    // Cursor proximity detection for nav bar
-    window.addEventListener('mousemove', (e) => {
-        if (fixedNav) {
-            // Show nav when cursor is within 100px of top
-            if (e.clientY < 100) {
-                fixedNav.classList.add('visible');
-            } else {
-                fixedNav.classList.remove('visible');
-            }
-        }
-    });
-
-    window.addEventListener('scroll', () => {
-        const heroBottom = hero ? hero.offsetHeight : 0;
-        const scrolled = window.scrollY;
-
-        // Scroll-based background fade transition
-        if (backgroundOverlay && threeCanvas && hero) {
-            // Start fading when user scrolls 20% through hero
-            const fadeStartPoint = heroBottom * 0.2;
-            // Complete fade at hero bottom
-            const fadeEndPoint = heroBottom;
-
-            let progress = 0;
-
-            if (scrolled <= fadeStartPoint) {
-                // Hero section - full 3D background, no overlay
-                progress = 0;
-            } else if (scrolled >= fadeEndPoint) {
-                // Content section - only gradient, no 3D
-                progress = 1;
-            } else {
-                // Transition zone - gradual fade
-                progress = (scrolled - fadeStartPoint) / (fadeEndPoint - fadeStartPoint);
-            }
-
-            // Fade in gradient overlay
-            backgroundOverlay.style.opacity = progress;
-
-            // Fade out 3D canvas completely
-            threeCanvas.style.opacity = 1 - progress;
-        }
-    });
-
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            const target = document.querySelector(this.getAttribute('href'));
-            if (target) {
-                target.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-        });
-    });
-</script>
-
-<!-- Three.js Background -->
-<script src="three-background.js?v=43"></script>
+<script src="main.js"></script>
 </body>
 </html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Writings — Nishal Thomas</title>
+    <meta name="description" content="Technical essays and research notes by Nishal Thomas.">
+    <meta property="og:title" content="Writings — Nishal Thomas">
+    <meta property="og:description" content="Technical essays and research notes by Nishal Thomas.">
+    <meta property="og:image" content="./public/logo.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="./public/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<svg id="ambient-landscape" aria-hidden="true" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+    <defs>
+        <filter id="ambRoughA" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="7" result="ambTurbA"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="ambTurbA" scale="16" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+    </defs>
+    <g class="amb-far">
+        <path d="M0,600 C80,560 140,520 220,545 C300,570 340,500 420,480 C480,465 520,510 580,530 C650,555 700,470 780,460 C830,455 860,500 920,510 C970,518 990,470 1060,455 C1110,445 1140,480 1200,500 C1260,520 1300,470 1380,485 C1440,495 1480,540 1600,505 L1600,900 L0,900 Z" fill="#341615" opacity="0.5" filter="url(#ambRoughA)"></path>
+    </g>
+    <g class="amb-near">
+        <path d="M0,780 C90,750 160,730 240,760 C310,785 360,740 450,750 C520,758 570,720 650,735 C730,750 780,710 860,725 C930,738 980,700 1060,715 C1130,728 1180,700 1260,720 C1330,738 1380,710 1460,730 C1520,744 1560,760 1600,745 L1600,900 L0,900 Z" fill="#1c1310" opacity="0.75" filter="url(#ambRoughA)"></path>
+    </g>
+</svg>
+<div id="ambient-embers" aria-hidden="true">
+    <span class="amb-ember" style="left:2%; width:3px; height:3px; animation-duration:16s; animation-delay:0s;"></span>
+    <span class="amb-ember" style="left:5%; width:2px; height:2px; animation-duration:13s; animation-delay:4s;"></span>
+    <span class="amb-ember" style="left:9%; width:3px; height:3px; animation-duration:19s; animation-delay:8s;"></span>
+    <span class="amb-ember" style="left:14%; width:2px; height:2px; animation-duration:15s; animation-delay:2s;"></span>
+    <span class="amb-ember" style="left:20%; width:4px; height:4px; animation-duration:21s; animation-delay:6s;"></span>
+    <span class="amb-ember" style="left:27%; width:2px; height:2px; animation-duration:14s; animation-delay:10s;"></span>
+    <span class="amb-ember" style="left:35%; width:3px; height:3px; animation-duration:18s; animation-delay:1s;"></span>
+    <span class="amb-ember" style="left:42%; width:2px; height:2px; animation-duration:12s; animation-delay:7s;"></span>
+    <span class="amb-ember" style="left:58%; width:3px; height:3px; animation-duration:20s; animation-delay:3s;"></span>
+    <span class="amb-ember" style="left:65%; width:2px; height:2px; animation-duration:14s; animation-delay:9s;"></span>
+    <span class="amb-ember" style="left:73%; width:4px; height:4px; animation-duration:22s; animation-delay:5s;"></span>
+    <span class="amb-ember" style="left:80%; width:2px; height:2px; animation-duration:13s; animation-delay:11s;"></span>
+    <span class="amb-ember" style="left:86%; width:3px; height:3px; animation-duration:17s; animation-delay:2s;"></span>
+    <span class="amb-ember" style="left:91%; width:2px; height:2px; animation-duration:15s; animation-delay:8s;"></span>
+    <span class="amb-ember" style="left:95%; width:3px; height:3px; animation-duration:19s; animation-delay:4s;"></span>
+    <span class="amb-ember" style="left:98%; width:2px; height:2px; animation-duration:16s; animation-delay:12s;"></span>
+</div>
+<div class="layout">
+    <!-- FIXED NAVIGATION -->
+    <nav class="fixed-nav visible" id="fixedNav">
+        <div class="nav-container">
+            <a href="index.html#hero" class="nav-logo"><img src="./public/logo.png" alt="Nishal Thomas logo" class="nav-logo-img"></a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="writings.html" class="nav-link active">Blogs/Writings</a>
+                <a href="./public/Nishal_CV.pdf" class="nav-link" target="_blank">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT SECTIONS -->
+    <main class="content-wrapper">
+        <div class="container">
+            <section id="writings">
+                <div class="notebook-scene" aria-hidden="true">
+                    <svg viewBox="0 0 900 240" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="notebookGradient" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#1c1310"></stop>
+                                <stop offset="100%" stop-color="#120a08"></stop>
+                            </linearGradient>
+                            <radialGradient id="notebookVignette" cx="50%" cy="45%" r="75%">
+                                <stop offset="45%" stop-color="#0c0505" stop-opacity="0"></stop>
+                                <stop offset="100%" stop-color="#0c0505" stop-opacity="0.6"></stop>
+                            </radialGradient>
+                            <filter id="notebookGlow" x="-150%" y="-150%" width="400%" height="400%">
+                                <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+                            </filter>
+                            <filter id="notebookGrain">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noiseN"></feTurbulence>
+                                <feColorMatrix in="noiseN" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+                            </filter>
+                        </defs>
+
+                        <rect x="0" y="0" width="900" height="240" fill="url(#notebookGradient)"></rect>
+
+                        <!-- left page -->
+                        <g transform="rotate(-3 450 122)">
+                            <rect x="190" y="35" width="245" height="175" rx="3" fill="#8a7a5c"></rect>
+                            <line x1="210" y1="62" x2="405" y2="62" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="210" y1="82" x2="385" y2="82" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="210" y1="102" x2="400" y2="102" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="210" y1="122" x2="370" y2="122" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="210" y1="142" x2="395" y2="142" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="210" y1="162" x2="360" y2="162" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                        </g>
+
+                        <!-- right page -->
+                        <g transform="rotate(3 450 122)">
+                            <rect x="465" y="35" width="245" height="175" rx="3" fill="#8a7a5c"></rect>
+                            <line x1="485" y1="62" x2="670" y2="62" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="485" y1="82" x2="690" y2="82" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="485" y1="102" x2="660" y2="102" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="485" y1="122" x2="680" y2="122" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="485" y1="142" x2="655" y2="142" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                            <line x1="485" y1="162" x2="675" y2="162" stroke="#5a4a36" stroke-width="2" opacity="0.5"></line>
+                        </g>
+
+                        <rect x="440" y="35" width="20" height="175" fill="#150e0c" opacity="0.35"></rect>
+
+                        <!-- a quill resting across the pages -->
+                        <line x1="480" y1="150" x2="640" y2="45" stroke="#241a14" stroke-width="3" stroke-linecap="round"></line>
+                        <path d="M628,40 L650,34 L640,54 Z" fill="#4a3a2c"></path>
+
+                        <!-- a candle for reading light -->
+                        <rect x="748" y="80" width="6" height="40" fill="#4a3a2c"></rect>
+                        <ellipse cx="751" cy="72" rx="16" ry="18" fill="#c9703a" opacity="0.6" filter="url(#notebookGlow)" class="glow-flicker"></ellipse>
+                        <ellipse cx="751" cy="74" rx="5" ry="7" fill="#e2a35a" class="glow-flicker"></ellipse>
+
+                        <rect x="0" y="0" width="900" height="240" filter="url(#notebookGrain)" opacity="0.07" style="mix-blend-mode: overlay"></rect>
+                        <rect x="0" y="0" width="900" height="240" fill="url(#notebookVignette)"></rect>
+                    </svg>
+                </div>
+
+                <h2 class="heading"><i class="fa-solid fa-pen-nib heading-icon"></i>Writings</h2>
+
+                <p class="text">
+                    I write technical essays and research notes about machine learning,
+                    focusing on interpretability, generalization, and experimental exploration.
+                </p>
+
+                <div class="writing-item">
+                    <h3>Mapping the Feasibility Boundary of Grokking in Transformers</h3>
+                    <p>
+                        An experimental study exploring when delayed generalization appears
+                        and where it breaks down.
+                    </p>
+                    <a href="https://nishal14.substack.com/p/mapping-the-feasibility-boundary" target="_blank">
+                        Read on Substack →
+                    </a>
+                </div>
+
+                <div class="writing-item">
+                    <h3>Introduction to Mechanistic Interpretability</h3>
+                    <p>
+                        A beginner-friendly guide to understanding how neural networks
+                        represent and process structure.
+                    </p>
+                    <a href="https://nishal14.substack.com/p/intro-to-mechanistic-interpretability" target="_blank">
+                        Read on Substack →
+                    </a>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-copy">© 2026 Nishal Thomas.</p>
+    </footer>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>

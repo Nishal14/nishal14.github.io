@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Nishal Thomas</title>
+    <meta name="description" content="About Nishal Thomas — AI interpretability research, current directions, and contact.">
+    <meta property="og:title" content="About — Nishal Thomas">
+    <meta property="og:description" content="About Nishal Thomas — AI interpretability research, current directions, and contact.">
+    <meta property="og:image" content="./public/logo.png">
+    <meta property="og:type" content="website">
+    <link rel="icon" type="image/png" href="./public/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<svg id="ambient-landscape" aria-hidden="true" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice">
+    <defs>
+        <filter id="ambRoughA" x="-10%" y="-10%" width="120%" height="120%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012 0.03" numOctaves="2" seed="7" result="ambTurbA"></feTurbulence>
+            <feDisplacementMap in="SourceGraphic" in2="ambTurbA" scale="16" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+        </filter>
+    </defs>
+    <g class="amb-far">
+        <path d="M0,600 C80,560 140,520 220,545 C300,570 340,500 420,480 C480,465 520,510 580,530 C650,555 700,470 780,460 C830,455 860,500 920,510 C970,518 990,470 1060,455 C1110,445 1140,480 1200,500 C1260,520 1300,470 1380,485 C1440,495 1480,540 1600,505 L1600,900 L0,900 Z" fill="#341615" opacity="0.5" filter="url(#ambRoughA)"></path>
+    </g>
+    <g class="amb-near">
+        <path d="M0,780 C90,750 160,730 240,760 C310,785 360,740 450,750 C520,758 570,720 650,735 C730,750 780,710 860,725 C930,738 980,700 1060,715 C1130,728 1180,700 1260,720 C1330,738 1380,710 1460,730 C1520,744 1560,760 1600,745 L1600,900 L0,900 Z" fill="#1c1310" opacity="0.75" filter="url(#ambRoughA)"></path>
+    </g>
+</svg>
+<div id="ambient-embers" aria-hidden="true">
+    <span class="amb-ember" style="left:2%; width:3px; height:3px; animation-duration:16s; animation-delay:0s;"></span>
+    <span class="amb-ember" style="left:5%; width:2px; height:2px; animation-duration:13s; animation-delay:4s;"></span>
+    <span class="amb-ember" style="left:9%; width:3px; height:3px; animation-duration:19s; animation-delay:8s;"></span>
+    <span class="amb-ember" style="left:14%; width:2px; height:2px; animation-duration:15s; animation-delay:2s;"></span>
+    <span class="amb-ember" style="left:20%; width:4px; height:4px; animation-duration:21s; animation-delay:6s;"></span>
+    <span class="amb-ember" style="left:27%; width:2px; height:2px; animation-duration:14s; animation-delay:10s;"></span>
+    <span class="amb-ember" style="left:35%; width:3px; height:3px; animation-duration:18s; animation-delay:1s;"></span>
+    <span class="amb-ember" style="left:42%; width:2px; height:2px; animation-duration:12s; animation-delay:7s;"></span>
+    <span class="amb-ember" style="left:58%; width:3px; height:3px; animation-duration:20s; animation-delay:3s;"></span>
+    <span class="amb-ember" style="left:65%; width:2px; height:2px; animation-duration:14s; animation-delay:9s;"></span>
+    <span class="amb-ember" style="left:73%; width:4px; height:4px; animation-duration:22s; animation-delay:5s;"></span>
+    <span class="amb-ember" style="left:80%; width:2px; height:2px; animation-duration:13s; animation-delay:11s;"></span>
+    <span class="amb-ember" style="left:86%; width:3px; height:3px; animation-duration:17s; animation-delay:2s;"></span>
+    <span class="amb-ember" style="left:91%; width:2px; height:2px; animation-duration:15s; animation-delay:8s;"></span>
+    <span class="amb-ember" style="left:95%; width:3px; height:3px; animation-duration:19s; animation-delay:4s;"></span>
+    <span class="amb-ember" style="left:98%; width:2px; height:2px; animation-duration:16s; animation-delay:12s;"></span>
+</div>
+<div class="layout">
+    <!-- FIXED NAVIGATION -->
+    <nav class="fixed-nav visible" id="fixedNav">
+        <div class="nav-container">
+            <a href="index.html#hero" class="nav-logo"><img src="./public/logo.png" alt="Nishal Thomas logo" class="nav-logo-img"></a>
+            <div class="nav-links">
+                <a href="about.html" class="nav-link active">About</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="publications.html" class="nav-link">Publications</a>
+                <a href="writings.html" class="nav-link">Blogs/Writings</a>
+                <a href="./public/Nishal_CV.pdf" class="nav-link" target="_blank">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT SECTIONS -->
+    <main class="content-wrapper">
+        <div class="container">
+            <section id="about">
+                <h1 class="heading"><i class="fa-solid fa-user heading-icon"></i>About Me</h1>
+                <p class="text">
+                    Hi, I’m <strong>Nishal Thomas</strong>, a Class 12 student passionate about machine learning, neural networks, and interpretability research. I build research-oriented projects that explore how models learn structure, generalize, and process information.
+                </p>
+                <p class="text">
+                    My current work spans mechanistic interpretability, generalization dynamics like grokking, and compact transformer models for algorithmic reasoning. I value reproducibility and clarity, and I enjoy turning conceptual ideas into documented, open-source research pipelines.
+                </p>
+                <p class="text">
+                    Beyond project work, I write technical explainers and guides that make complex topics more accessible. I’m particularly interested in the intersection of AI, mathematics, and structured reasoning, and I’m looking to grow further in research and experimentation.
+                </p>
+                <p class="text">
+                    I study at St. Mary’s Sr. Sec. School in New Delhi, India. You’ll find links to my projects, code, and writings throughout this site, feel free to explore!
+                </p>
+            </section>
+
+            <section id="contact">
+                <div class="overlook-scene" aria-hidden="true">
+                    <svg viewBox="0 0 900 260" preserveAspectRatio="xMidYMid slice">
+                        <defs>
+                            <linearGradient id="contactSky" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#180d0d"></stop>
+                                <stop offset="50%" stop-color="#3a1a14"></stop>
+                                <stop offset="100%" stop-color="#241610"></stop>
+                            </linearGradient>
+                            <radialGradient id="contactVignette" cx="50%" cy="45%" r="75%">
+                                <stop offset="45%" stop-color="#0c0505" stop-opacity="0"></stop>
+                                <stop offset="100%" stop-color="#0c0505" stop-opacity="0.6"></stop>
+                            </radialGradient>
+                            <filter id="contactRough" x="-10%" y="-10%" width="120%" height="120%">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.02 0.04" numOctaves="2" seed="17" result="turbCo"></feTurbulence>
+                                <feDisplacementMap in="SourceGraphic" in2="turbCo" scale="10" xChannelSelector="R" yChannelSelector="G"></feDisplacementMap>
+                            </filter>
+                            <filter id="contactGlow" x="-150%" y="-150%" width="400%" height="400%">
+                                <feGaussianBlur stdDeviation="6"></feGaussianBlur>
+                            </filter>
+                            <filter id="contactGrain">
+                                <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="2" stitchTiles="stitch" result="noiseC"></feTurbulence>
+                                <feColorMatrix in="noiseC" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"></feColorMatrix>
+                            </filter>
+                        </defs>
+
+                        <rect x="0" y="0" width="900" height="260" fill="url(#contactSky)"></rect>
+
+                        <g fill="#d8cdb8" opacity="0.5">
+                            <circle cx="120" cy="40" r="1.3"></circle>
+                            <circle cx="260" cy="70" r="1"></circle>
+                            <circle cx="380" cy="30" r="1.4"></circle>
+                            <circle cx="740" cy="50" r="1.2"></circle>
+                            <circle cx="820" cy="90" r="1"></circle>
+                        </g>
+
+                        <path filter="url(#contactRough)" d="M0,190 C120,160 200,200 320,175 C420,155 480,195 600,170 C700,150 780,190 900,165 L900,260 L0,260 Z" fill="#180d0d" stroke="#0c0505" stroke-width="2" stroke-opacity="0.6"></path>
+
+                        <!-- a bench, quiet overlook -->
+                        <rect x="200" y="185" width="90" height="8" fill="#0c0705"></rect>
+                        <rect x="210" y="193" width="6" height="20" fill="#0c0705"></rect>
+                        <rect x="270" y="193" width="6" height="20" fill="#0c0705"></rect>
+
+                        <!-- a lantern post -->
+                        <rect x="616" y="60" width="4" height="200" fill="#241c14"></rect>
+                        <ellipse cx="618" cy="80" rx="20" ry="22" fill="#c9703a" opacity="0.6" filter="url(#contactGlow)" class="glow-flicker"></ellipse>
+                        <rect x="602" y="60" width="32" height="40" rx="3" fill="#1c140f" stroke="#0e0a08" stroke-width="1.5"></rect>
+                        <rect x="608" y="68" width="20" height="24" rx="2" fill="#e2a35a" class="glow-flicker"></rect>
+
+                        <rect x="0" y="0" width="900" height="260" filter="url(#contactGrain)" opacity="0.07" style="mix-blend-mode: overlay"></rect>
+                        <rect x="0" y="0" width="900" height="260" fill="url(#contactVignette)"></rect>
+                    </svg>
+                </div>
+
+                <h2 class="heading"><i class="fa-solid fa-paper-plane heading-icon"></i>Contact</h2>
+
+                <p class="text">
+                    If you’d like to talk about research, projects, or collaboration,
+                    feel free to reach out.
+                </p>
+
+                <div class="contact-links">
+                    <a href="mailto:nishal.thomas44@gmail.com">Email</a>
+                    <a href="https://github.com/Nishal14" target="_blank">GitHub</a>
+                    <a href="https://nishal14.substack.com" target="_blank">Substack</a>
+                </div>
+            </section>
+
+            <section id="directions">
+                <h2 class="heading"><i class="fa-solid fa-compass heading-icon"></i>Current Directions</h2>
+
+                <p class="text">
+                    I’m currently exploring a few open questions in machine learning:
+                </p>
+
+                <ul class="interests-list">
+                    <li>Semantic invariance and robustness in mathematical reasoning benchmarks</li>
+                    <li>How machine learning models learn and represent structure</li>
+                    <li>Methods for making model behavior easier to interpret</li>
+                    <li>Reproducible, evidence-grounded research pipelines connecting retrieval, verification, and reasoning</li>
+                </ul>
+
+                <p class="text">
+                    These directions guide the projects I choose and the experiments I run.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p class="footer-copy">© 2026 Nishal Thomas.</p>
+    </footer>
+</div>
+
+<script src="main.js"></script>
+</body>
+</html>
