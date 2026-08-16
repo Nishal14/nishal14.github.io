@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Mechanistic Interpretability — Nishal Thomas</title>
+    <meta name="description" content="A beginner-friendly guide to understanding how neural networks represent and process structure.">
+    <meta property="og:title" content="Introduction to Mechanistic Interpretability">
+    <meta property="og:description" content="A beginner-friendly guide to understanding how neural networks represent and process structure.">
+    <meta property="og:image" content="../public/logo.png">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/png" href="../public/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="layout subpage">
+    <nav class="fixed-nav visible" id="fixedNav">
+        <div class="nav-container">
+            <a href="../index.html#hero" class="nav-logo"><img src="../public/logo.png" alt="Nishal Thomas logo" class="nav-logo-img"></a>
+            <div class="nav-links">
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+                <a href="../publications.html" class="nav-link">Publications</a>
+                <a href="../writings.html" class="nav-link active">Blogs/Writings</a>
+                <a href="../public/Nishal_CV.pdf?v=20260327" class="nav-link" target="_blank">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-wrapper theme-terminal">
+        <div class="blog-shell">
+            <a href="../writings.html" class="blog-back-link"><i class="fa-solid fa-arrow-left"></i> Back to Writings</a>
+
+            <header class="blog-post-header">
+                <span class="blog-theme-tag">$ mech_interp --intro</span>
+                <h1 class="blog-post-title">Introduction to Mechanistic Interpretability</h1>
+                <p class="blog-post-dek">Opening the black box instead of just staring at its outputs.</p>
+                <div class="blog-post-meta">
+                    <span><i class="fa-regular fa-calendar"></i> February 1, 2026</span>
+                    <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+                </div>
+            </header>
+
+            <article class="blog-post-body">
+                <p>
+                    AI is everywhere right now — new models, new tools, new claims about what they can and can't do
+                    seem to show up every week. Like a lot of people, that made me curious. Not just about what
+                    these systems can do, but about how they actually work underneath.
+                </p>
+                <p>
+                    At first that curiosity was pretty vague — I trained models, used them in projects, and moved
+                    on. But the more I worked with neural networks, the less satisfying that felt. If a model solves
+                    a problem correctly, what does that actually mean? Is it following some internal procedure, or
+                    just matching patterns that happen to work?
+                </p>
+                <p>
+                    That question eventually led me to mechanistic interpretability — a field that tries to
+                    understand neural networks by opening them up and studying what their individual parts do,
+                    instead of treating the whole thing as a black box. Rather than just checking outputs, it asks
+                    causal questions: what happens if I remove this component? What information is represented here?
+                    Which parts actually matter for a given behavior?
+                </p>
+                <p>
+                    I explored these questions through a small project on transformers and arithmetic — part
+                    genuine curiosity, part wanting to build something concrete, and part, if I'm honest, wanting a
+                    solid project for college applications.
+                </p>
+                <p>
+                    What follows is mechanistic interpretability the way I came to understand it — as a beginner,
+                    building small models, breaking them on purpose, and slowly forming intuitions about what's
+                    going on inside.
+                </p>
+
+                <h2>The question underneath the jargon</h2>
+                <p>Before learning any terminology, I needed one plain question to anchor everything.</p>
+                <blockquote>When a model solves a problem correctly, what is it actually doing internally?</blockquote>
+                <p>
+                    Take an expression like <code>(3 + 5) * 2</code>. To a person, the structure is obvious — the
+                    parentheses mean <code>3 + 5</code> gets evaluated first, then multiplied by 2 (basic
+                    BODMAS/PEMDAS). We group the expression and apply rules we've internalized without even
+                    thinking about it.
+                </p>
+                <p>
+                    A transformer doesn't get that for free. It's a model that reads sequences and learns how
+                    different parts relate to each other — it doesn't see a grouped expression, just a sequence of
+                    tokens: <code>"(", "3", "+", "5", ")", "*", "2"</code>. That's it. Nothing in the input tells it
+                    which tokens belong together, or which operation should happen first.
+                </p>
+                <p>
+                    This is exactly where parentheses get interesting. They introduce hierarchy into an otherwise
+                    flat sequence, so to solve the problem correctly the model somehow has to track:
+                </p>
+                <ul>
+                    <li>where a parenthesis opens,</li>
+                    <li>where it closes,</li>
+                    <li>which tokens fall inside it,</li>
+                    <li>and how operations inside parentheses should be handled differently from those outside.</li>
+                </ul>
+                <p>In other words, it needs to reason about scope and nesting, not just local patterns.</p>
+                <p>
+                    To sharpen the question further, I trained the model under one more constraint: final-answer-only
+                    supervision. It never saw intermediate steps, never was told to evaluate <code>3 + 5</code>
+                    first — only the full expression and the correct final answer.
+                </p>
+                <blockquote>
+                    So the real question became: if a transformer is trained purely on final answers, does it still
+                    develop internal mechanisms that track structure — like parenthesis depth and scope — on its
+                    own?
+                </blockquote>
+                <p>
+                    That turned out to be a great setting for learning mechanistic interpretability: simple enough
+                    to fully understand, but structured enough to expose whether the model had learned something
+                    deeper than surface-level patterns.
+                </p>
+
+                <h2>What mechanistic interpretability actually asks</h2>
+                <p>At a high level, mechanistic interpretability means opening up a model and asking:</p>
+                <blockquote>What is actually going on inside this thing when it makes a decision?</blockquote>
+                <p>
+                    Most of the time we judge AI only by its outputs — if the answer's right, we're satisfied; if
+                    it's wrong, we train it more. That treats the model like a black box: input in, output out,
+                    everything in between hidden. Mechanistic interpretability does the opposite. Instead of "did
+                    the model get it right," it asks:
+                </p>
+                <ul>
+                    <li>Which parts of the model were responsible?</li>
+                    <li>What information was being represented internally?</li>
+                    <li>Are there specific components that handle specific sub-tasks?</li>
+                </ul>
+                <p>
+                    In other words, it stops treating the model as magic and starts treating it as a system made of
+                    parts — parts you can inspect, test, and even break on purpose.
+                </p>
+
+                <h2>Why this task was a good fit</h2>
+                <p>The arithmetic task I used was intentionally simple:</p>
+                <ul>
+                    <li>Expressions like <code>3 + 5</code>, <code>(2 + 4) * 3</code>, or <code>((1 + 2) * 3) + 4</code></li>
+                    <li>Only basic operators: addition, subtraction, multiplication</li>
+                    <li>Parentheses limited to shallow nesting during training</li>
+                </ul>
+                <p>
+                    Most importantly, the model only ever saw the final answer — no hints about order of
+                    operations, no explicit rules. It never saw anything like "evaluate inside the brackets first."
+                    If it picked up that behavior, it had to emerge on its own.
+                </p>
+                <p>
+                    That's exactly what makes a small, fully-understood task useful here: the structure is
+                    non-trivial, and anything I find inside the model is meaningful rather than accidental.
+                </p>
+
+                <h2>What does "looking inside" mean?</h2>
+                <p>
+                    So how do you actually look inside a transformer? Instead of treating it as one object, you
+                    break it into components:
+                </p>
+                <ul>
+                    <li>Layers</li>
+                    <li>Attention heads</li>
+                    <li>Internal activations (numbers flowing through the network)</li>
+                </ul>
+                <p>
+                    Each attention head is basically a tiny pattern detector — some might focus on nearby tokens,
+                    others on far-away ones, some on numbers, others on symbols like <code>(</code> and
+                    <code>)</code>. Mechanistic interpretability asks: is any head doing something recognizable? Can
+                    we find heads that care about structure rather than surface patterns?
+                </p>
+                <p>To answer that, I used three tools, each giving a different kind of evidence:</p>
+                <ul>
+                    <li>Ablation</li>
+                    <li>Linear probing</li>
+                    <li>Out-of-distribution testing</li>
+                </ul>
+
+                <h3>1. Ablation — breaking parts on purpose</h3>
+                <p>
+                    Ablation is exactly what it sounds like: you deliberately disable part of the model and see what
+                    breaks. I selectively turned off individual attention heads and measured accuracy on flat
+                    expressions versus parenthesized ones. A head that barely mattered for flat expressions but
+                    caused a real drop on parenthesized ones was doing something specifically structural — not just
+                    general computation. That's causal evidence: the model isn't just correlated with parentheses,
+                    it actually relies on certain components to handle them.
+                </p>
+
+                <h3>2. Linear probing — checking what's actually represented</h3>
+                <p>A different question: does the model explicitly represent parenthesis depth internally?</p>
+                <p>
+                    To test that, I froze the trained model, pulled out its internal activations, and trained a
+                    tiny linear classifier to predict parenthesis depth from them. If a simple linear model can
+                    decode it well, that information is sitting in a clean, usable form — not buried somewhere
+                    tangled. Individual attention heads encoded it moderately well on their own; the combined
+                    residual stream encoded it extremely well, which suggests the structure is integrated across
+                    the model rather than owned by any one part.
+                </p>
+
+                <h3>3. Out-of-distribution testing — checking it's not just memorization</h3>
+                <p>
+                    Training only used expressions with nesting depth ≤ 2 — things like <code>3 + 5</code>,
+                    <code>(2 + 4) * 3</code>, <code>(1 + (2 * 3))</code>, and <code>((4 + 5) * 2)</code>. At test
+                    time I gave the model unseen depth-3 expressions, like <code>((1 + 2) * (3 + 4))</code>,
+                    <code>(2 * (3 + (4 * 5)))</code>, and <code>(((1 + 2) * 3) + 4)</code> — familiar tokens, new
+                    structure. If the model were just memorizing, it should fail here. Instead, when I removed the
+                    attention heads I'd already flagged as structure-sensitive, performance on these deeper
+                    expressions dropped again — good evidence those heads were doing real, generalizing work, not
+                    something incidental.
+                </p>
+
+                <h2>What it adds up to</h2>
+                <p>
+                    This project isn't really about arithmetic. It's a clean, controlled environment for asking a
+                    bigger question: do networks trained only on final outcomes still build internal structure?
+                    Here, the evidence says yes — the model developed attention heads causally involved in tracking
+                    structure, encoded abstract information like parenthesis depth in a usable form, and applied
+                    that machinery to structures it had never seen during training.
+                </p>
+                <p>
+                    Representation, causality, and generalization all pointing the same way matters a lot if you
+                    care about reasoning in bigger systems — and about building AI you can actually trust because
+                    you understand it, not just because it usually works.
+                </p>
+
+                <h2>What surprised me</h2>
+                <p>
+                    How concrete this all is. It's not vague hand-waving about "the model understands X" — you can
+                    point at specific components, turn them off, measure the effect, quantify what information is
+                    present, and test whether a mechanism actually transfers to new inputs.
+                </p>
+                <p>
+                    The other thing that stuck with me: correct behavior doesn't guarantee correct reasoning. A
+                    model can land on the right answer through a shortcut or convenient memorization (kind of like
+                    humans, honestly). Mechanistic interpretability forces you to actually ask what the model is
+                    relying on, instead of assuming.
+                </p>
+                <p>
+                    Working on a small, fully-controlled problem was a feature, not a limitation — because I
+                    understood the task completely, anything I found inside the model was checkable, not
+                    speculative. My takeaway for anyone starting out: you don't need a huge model or a huge dataset
+                    to do meaningful work here. Start small, ask concrete questions, and don't be afraid to open the
+                    black box. That's where the real learning happens.
+                </p>
+                <p class="blog-signoff">— Nishal Thomas</p>
+            </article>
+
+            <footer class="blog-post-footer">
+                <a href="../writings.html"><i class="fa-solid fa-arrow-left"></i> All writings</a>
+                <a href="https://github.com/Nishal14/Step-free-arithmetic-transformers" target="_blank"><i class="fa-brands fa-github"></i> Code on GitHub</a>
+                <a href="https://nishal14.substack.com/p/intro-to-mechanistic-interpretability" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Original on Substack</a>
+            </footer>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-copy">© 2026 Nishal Thomas.</p>
+    </footer>
+</div>
+
+<script src="../main.js"></script>
+</body>
+</html>

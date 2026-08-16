@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapping the Feasibility Boundary of Grokking in Transformers — Nishal Thomas</title>
+    <meta name="description" content="An experimental study exploring when delayed generalization ('grokking') appears in transformers, and where it breaks down.">
+    <meta property="og:title" content="Mapping the Feasibility Boundary of Grokking in Transformers">
+    <meta property="og:description" content="An experimental study exploring when delayed generalization ('grokking') appears in transformers, and where it breaks down.">
+    <meta property="og:image" content="../public/logo.png">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/png" href="../public/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="layout subpage">
+    <nav class="fixed-nav visible" id="fixedNav">
+        <div class="nav-container">
+            <a href="../index.html#hero" class="nav-logo"><img src="../public/logo.png" alt="Nishal Thomas logo" class="nav-logo-img"></a>
+            <div class="nav-links">
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+                <a href="../publications.html" class="nav-link">Publications</a>
+                <a href="../writings.html" class="nav-link active">Blogs/Writings</a>
+                <a href="../public/Nishal_CV.pdf?v=20260327" class="nav-link" target="_blank">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-wrapper theme-chalkboard">
+        <div class="blog-shell">
+            <a href="../writings.html" class="blog-back-link"><i class="fa-solid fa-arrow-left"></i> Back to Writings</a>
+
+            <header class="blog-post-header">
+                <span class="blog-theme-tag">Generalization Dynamics</span>
+                <h1 class="blog-post-title">Mapping the Feasibility Boundary of Grokking in Transformers</h1>
+                <p class="blog-post-dek">How far "grokking" actually holds up under pressure.</p>
+                <div class="blog-post-meta">
+                    <span><i class="fa-regular fa-calendar"></i> February 7, 2026</span>
+                    <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+                </div>
+            </header>
+
+            <article class="blog-post-body">
+                <p>
+                    Neural networks sometimes behave in ways that feel almost counterintuitive. One of the
+                    strangest is grokking: a model can train for a long time while performing poorly on new
+                    examples, and then, almost suddenly, snap into near-perfect generalization.
+                </p>
+                <p>
+                    That raised a question I couldn't stop thinking about: when does grokking actually happen, and
+                    when does it fail? Is it a rare accident, or are there clear conditions that make it possible?
+                </p>
+                <p>
+                    In this project I tried to map out grokking's boundaries in small transformer models — running
+                    controlled experiments on simple arithmetic tasks, carefully varying how the data was
+                    structured, and watching where delayed generalization appears and where it disappears. The goal
+                    wasn't just to reproduce grokking, but to understand its limits.
+                </p>
+
+                <h2>What is grokking?</h2>
+                <p>
+                    To understand grokking, it helps to think about how we usually expect learning to work.
+                    Normally, as training progresses, both training performance and generalization improve
+                    together — the model gets better at the task and gradually generalizes.
+                </p>
+                <p>
+                    Grokking breaks that pattern. A model can reach very low training error early — essentially
+                    memorizing the training data — while still performing poorly on new examples, sometimes for a
+                    long time. Then, after many more training steps, it suddenly transitions to near-perfect
+                    generalization. The improvement is sharp and delayed, almost like a phase change.
+                </p>
+                <blockquote>
+                    One way to picture this is a student preparing for an exam. At first, he/she memorizes specific
+                    practice problems without really understanding the underlying ideas, and struggles with
+                    anything new. Then, after enough exposure, something clicks: they grasp the deeper pattern, and
+                    suddenly many new problems become easy. Grokking looks like a similar shift from memorization to
+                    structured understanding.
+                </blockquote>
+                <p>
+                    This delayed jump is surprising because it challenges the usual intuition that generalization
+                    improves smoothly. Instead, it suggests models can go through hidden stages — fitting the data
+                    shallowly at first, and only later discovering a more systematic solution.
+                </p>
+
+                <h2>The question I actually wanted answered</h2>
+                <p>
+                    Once I started reading about grokking, a natural question came up: how fragile is this
+                    phenomenon? Does it happen under a wide range of conditions, or only in very specific setups?
+                </p>
+                <p>
+                    Most demonstrations use carefully designed tasks where training and test data are closely
+                    related. I wanted to know what happens if you systematically change that relationship — where,
+                    exactly, is the boundary between settings where grokking appears and settings where it
+                    collapses?
+                </p>
+                <p>
+                    So the goal wasn't to reproduce a known result, but to map the space around it. By gradually
+                    varying how much the training and test tasks overlapped, I could explore a spectrum — from
+                    familiar interpolation (new problems that look like ones the model practiced) to harder
+                    extrapolation (problems that go beyond anything it's seen). The central question: how does the
+                    structure of the problem shape the possibility of delayed generalization?
+                </p>
+
+                <h2>Setup</h2>
+                <p>
+                    I trained small transformers on modular arithmetic — operations like addition or multiplication
+                    that wrap around at a fixed value, the same idea as clock arithmetic.
+                </p>
+                <blockquote>
+                    Modular arithmetic might sound abstract, but you can think of it like a clock. On a 12-hour
+                    clock, 9 + 5 doesn't equal 14 — it wraps around to 2. These kinds of tasks are simple enough to
+                    study in detail, but rich enough for interesting learning dynamics to appear.
+                </blockquote>
+                <p>
+                    The key move was varying how much the training data overlapped with the test data — in some
+                    settings covering most of the patterns the model would later be tested on, in others
+                    restricting it enough to force generalization to new combinations. That gave me a spectrum of
+                    regimes, from easy interpolation to hard extrapolation, each acting like its own environment for
+                    watching where delayed generalization emerged and where it broke down.
+                </p>
+
+                <h2>Three regimes, not a smooth curve</h2>
+                <p>
+                    I expected something gradual — grokking just taking longer to show up as the task got harder.
+                    What I got instead was three distinct behavioral regimes.
+                </p>
+                <p><span class="blog-badge regime-interpolation">Interpolation regime</span></p>
+                <p>
+                    High overlap between training and test problems. The model reused patterns it had already seen,
+                    learned quickly, and generalized early — accuracy rose steadily, no long delay. At first glance
+                    this looked like success, but internally the model wasn't really discovering the arithmetic
+                    rule. It was mostly stitching together familiar patterns. No dramatic phase transition, just
+                    gradual improvement.
+                </p>
+                <p><span class="blog-badge regime-boundary">Boundary regime</span></p>
+                <p>
+                    Reduced overlap. Test accuracy stayed low for a long stretch, hovering near zero — the classic
+                    setup for grokking. But the jump never fully materialized within the training window I used.
+                    This felt like standing at the edge of a cliff: the model was being forced off its shortcuts,
+                    but hadn't found a clean algorithmic solution yet.
+                </p>
+                <p><span class="blog-badge regime-extrapolation">Extrapolation regime</span></p>
+                <p>
+                    Minimal overlap. The model memorized the training set and never generalized — test accuracy
+                    stayed near chance no matter how long I trained. This wasn't delayed grokking. It was a hard
+                    wall.
+                </p>
+
+                <h2>The boundary is sharp, not gradual</h2>
+                <p>
+                    The biggest surprise wasn't that these three regimes exist — it's how abrupt the transition
+                    between them is. I expected grokking to gradually take longer to show up as the task got
+                    harder. Instead there's a narrow boundary separating two very different worlds: one where
+                    interpolation lets the model generalize early, one where memorization simply fails outright.
+                    Push the task only slightly further toward extrapolation, and grokking doesn't slow down — it
+                    collapses. It lives in a fragile zone, not a wide one.
+                </p>
+
+                <h2>What's happening inside the model</h2>
+                <p>
+                    Accuracy curves only tell you so much, so I also looked at the model's internal
+                    representations. In runs where grokking actually happened, the representations visibly
+                    simplified right as accuracy jumped — consistent with the model reorganizing around a cleaner,
+                    more compact rule. In the runs where grokking failed, the internal representations stayed messy
+                    throughout, and the model just kept memorizing without ever reorganizing. That's a clue:
+                    grokking isn't just about getting the right answers — it's about finding a simpler internal
+                    structure.
+                </p>
+
+                <h2>A rough theoretical picture</h2>
+                <p>
+                    Putting this together: grokking requires a delicate balance — enough challenge to prevent easy
+                    shortcuts, but not so much novelty that the model gives up on finding a rule at all.
+                </p>
+                <blockquote>
+                    It seems to live near a feasibility boundary — a thin region where memorization becomes
+                    unstable and structured understanding finally wins.
+                </blockquote>
+                <p>
+                    One way to think about training is as a competition between two strategies. Memorization stores
+                    specific examples and patches them together — it works well whenever test problems resemble
+                    training ones, and interpolation makes it surprisingly powerful. Rule discovery instead finds a
+                    compact internal algorithm that works everywhere — for modular arithmetic, something close to
+                    the real underlying rule.
+                </p>
+                <p>
+                    In high-overlap settings, memorization stays comfortable enough that the model never needs to
+                    reorganize — no dramatic transition, just steady improvement. In extreme extrapolation,
+                    memorization fails, but the distance to a working rule is too large to bridge, so the model just
+                    gets stuck. Grokking shows up in the narrow middle region where memorization is failing but rule
+                    discovery is still just barely reachable — that pressure is what produces the sudden phase
+                    transition. Seen this way, grokking isn't magic. It's a tipping point between two competing
+                    ways of solving a problem.
+                </p>
+
+                <h2>What this suggests</h2>
+                <p>
+                    Generalization here depends heavily on task structure, not just training time. A small change
+                    to how you split train and test data can move a model from easy interpolation to total failure,
+                    with genuinely delayed generalization only appearing in a thin boundary region in between.
+                </p>
+                <p>
+                    For beginners like me, that's a useful lesson: a model generalizing doesn't automatically mean
+                    it found a clean rule — sometimes it's just exploiting similarity in the data. True algorithmic
+                    understanding seems to need carefully balanced pressure, not just more training.
+                </p>
+                <p>
+                    This doesn't solve grokking — it maps a slice of its landscape. But it points toward the idea
+                    that grokking lives right at a feasibility boundary between memorization and understanding,
+                    which is often exactly where the most interesting behavior in machine learning shows up. And
+                    that's exactly where I want to keep exploring.
+                </p>
+                <p class="blog-signoff">— Nishal Thomas</p>
+            </article>
+
+            <footer class="blog-post-footer">
+                <a href="../writings.html"><i class="fa-solid fa-arrow-left"></i> All writings</a>
+                <a href="https://github.com/Nishal14/Grokking-boundaries" target="_blank"><i class="fa-brands fa-github"></i> Code on GitHub</a>
+                <a href="https://nishal14.substack.com/p/mapping-the-feasibility-boundary" target="_blank"><i class="fa-solid fa-up-right-from-square"></i> Original on Substack</a>
+            </footer>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-copy">© 2026 Nishal Thomas.</p>
+    </footer>
+</div>
+
+<script src="../main.js"></script>
+</body>
+</html>

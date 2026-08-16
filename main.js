@@ -34,7 +34,7 @@ if (introOverlay) {
 // The next page fades itself in on load (see the .page-fade-in rule in CSS).
 const isHomePage = /\/(index\.html)?$/.test(window.location.pathname);
 
-document.querySelectorAll('.nav-logo, .nav-link').forEach((link) => {
+document.querySelectorAll('.nav-logo, .nav-link, .card-link').forEach((link) => {
     if (link.target === '_blank') return;
     const href = link.getAttribute('href');
     if (!href) return;

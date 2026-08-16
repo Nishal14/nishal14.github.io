@@ -1,0 +1,448 @@
+/* ===============================
+   Blog theme kits
+   ---------------------------------
+   Each blog post picks ONE theme class on its <main class="content-wrapper">
+   element. A theme just reskins the same CSS custom properties the rest of
+   the site already uses (--text-color, --heading-color, --accent-color,
+   --card-bg, --border-color), scoped to that <main> only — the nav and
+   footer stay on the site's default dark-ember palette, same as how
+   #projects/#writings/#contact already each get their own local background
+   without touching the global one. That's what gives each post its own
+   aesthetic without a full bespoke illustration per post.
+
+   TO ADD A NEW POST: copy blog/_template.html, write the post, pick one of
+   the theme classes below (or add a new one following the same pattern).
+================================= */
+
+.content-wrapper[class*="theme-"] {
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    margin-left: -50vw;
+    padding-top: 0;
+}
+
+.content-wrapper[class*="theme-"] .blog-shell {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 7rem 2rem 5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== Shared blog post structure (theme-agnostic) ===== */
+
+.blog-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-decoration: none;
+    color: var(--accent-color);
+    opacity: 0.85;
+    margin-bottom: 2.5rem;
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.blog-back-link:hover {
+    opacity: 1;
+    transform: translateX(-3px);
+}
+
+.blog-post-header {
+    margin-bottom: 3rem;
+}
+
+.blog-theme-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-color);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    padding: 0.25em 0.7em;
+    margin-bottom: 1.2rem;
+}
+
+.blog-post-title {
+    font-family: "Cormorant Garamond", "Georgia", serif;
+    color: var(--heading-color);
+    font-size: clamp(2rem, 5vw, 3rem);
+    line-height: 1.15;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.75rem;
+}
+
+.blog-post-dek {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin-bottom: 1.2rem;
+}
+
+.blog-post-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+.blog-post-body {
+    line-height: 1.8;
+    font-size: 1.05rem;
+    color: var(--text-color);
+}
+
+.blog-post-body h2, .blog-post-body h3 {
+    color: var(--heading-color);
+    margin: 2.4rem 0 1rem;
+    line-height: 1.3;
+}
+
+.blog-post-body h2 { font-size: 1.5rem; }
+.blog-post-body h3 { font-size: 1.15rem; letter-spacing: 0.02em; }
+
+.blog-post-body p { margin-bottom: 1.3rem; }
+
+.blog-post-body strong { color: var(--heading-color); }
+
+.blog-post-body a { color: var(--accent-color); }
+
+.blog-post-body blockquote {
+    margin: 1.8rem 0;
+    padding: 0.4rem 0 0.4rem 1.4rem;
+    border-left: 3px solid var(--accent-color);
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.blog-post-body ul, .blog-post-body ol {
+    margin: 0 0 1.3rem 1.4rem;
+}
+
+.blog-post-body li { margin-bottom: 0.5rem; }
+
+.blog-post-body figure {
+    margin: 2rem 0;
+    padding: 0.6rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--card-bg);
+}
+
+.blog-post-body figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.blog-post-body figcaption {
+    margin-top: 0.6rem;
+    padding: 0 0.4rem;
+    font-size: 0.82rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    text-align: center;
+    font-style: italic;
+}
+
+.blog-post-body code {
+    font-family: "SFMono-Regular", "JetBrains Mono", Consolas, monospace;
+    font-size: 0.9em;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    padding: 0.1em 0.35em;
+}
+
+.blog-signoff {
+    margin-top: 2.5rem;
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+.blog-post-footer {
+    margin-top: 3.5rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem 1.5rem;
+    font-size: 0.85rem;
+}
+
+.blog-post-footer a { color: var(--accent-color); text-decoration: none; }
+.blog-post-footer a:hover { text-decoration: underline; }
+
+/* Regime / concept badges used inline in post bodies */
+.blog-badge {
+    display: inline-block;
+    font-family: "Inter", sans-serif;
+    font-size: 0.72em;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    padding: 0.15em 0.55em;
+    border-radius: 4px;
+    border: 1px solid currentColor;
+    margin: 0 0.15em;
+}
+
+/* ===============================
+   Theme: terminal
+   Phosphor-green CRT console — for posts about opening the black box,
+   ablations, probes, anything code-adjacent.
+================================= */
+.content-wrapper.theme-terminal {
+    background: #060a08;
+    --text-color: #a9e8bb;
+    --text-secondary: #6fa584;
+    --heading-color: #baffce;
+    --accent-color: #39ff88;
+    --border-color: rgba(57, 255, 136, 0.28);
+    --card-bg: #0b120e;
+}
+
+.content-wrapper.theme-terminal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+        to bottom,
+        rgba(57, 255, 136, 0.035) 0px,
+        rgba(57, 255, 136, 0.035) 1px,
+        transparent 1px,
+        transparent 3px
+    );
+    mix-blend-mode: overlay;
+}
+
+.content-wrapper.theme-terminal::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 50% 0%, rgba(57, 255, 136, 0.09), transparent 60%);
+}
+
+.content-wrapper.theme-terminal .blog-post-title,
+.content-wrapper.theme-terminal .blog-post-body h2,
+.content-wrapper.theme-terminal .blog-post-body h3,
+.content-wrapper.theme-terminal .blog-post-body,
+.content-wrapper.theme-terminal .blog-post-dek,
+.content-wrapper.theme-terminal .blog-theme-tag,
+.content-wrapper.theme-terminal .blog-post-meta {
+    font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+}
+
+.content-wrapper.theme-terminal .blog-post-title::after {
+    content: "_";
+    animation: termCursor 1s step-end infinite;
+    color: var(--accent-color);
+}
+
+@keyframes termCursor {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+.content-wrapper.theme-terminal .blog-post-body blockquote {
+    background: rgba(57, 255, 136, 0.05);
+    padding: 1rem 1.4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .content-wrapper.theme-terminal .blog-post-title::after { animation: none; opacity: 1; }
+}
+
+/* ===============================
+   Theme: chalkboard
+   A worn lecture-hall blackboard — chalk dust, faint hand-ruled grid,
+   warm chalk-yellow ink. For posts about experiments, regimes, phase
+   transitions and data.
+================================= */
+.content-wrapper.theme-chalkboard {
+    background: #1b2420;
+    --text-color: #e7e3d3;
+    --text-secondary: #a9a690;
+    --heading-color: #e8c468;
+    --accent-color: #e2a35a;
+    --border-color: rgba(232, 196, 104, 0.25);
+    --card-bg: #202b25;
+}
+
+.content-wrapper.theme-chalkboard::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(ellipse 60% 40% at 15% 8%, rgba(255, 255, 255, 0.05), transparent 60%),
+        radial-gradient(ellipse 50% 30% at 85% 92%, rgba(255, 255, 255, 0.04), transparent 65%);
+}
+
+.content-wrapper.theme-chalkboard::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 42px),
+        repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.025) 0px, rgba(255, 255, 255, 0.025) 1px, transparent 1px, transparent 42px);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 90%);
+}
+
+.content-wrapper.theme-chalkboard .blog-post-title {
+    color: var(--heading-color);
+}
+
+.content-wrapper.theme-chalkboard .blog-badge.regime-interpolation { color: #9fd88a; }
+.content-wrapper.theme-chalkboard .blog-badge.regime-boundary { color: #e8c468; }
+.content-wrapper.theme-chalkboard .blog-badge.regime-extrapolation { color: #e2836a; }
+
+.content-wrapper.theme-chalkboard .blog-post-body blockquote {
+    border-left-color: var(--heading-color);
+}
+
+/* ===============================
+   Theme: parchment
+   Warm aged paper for reflective / narrative essays. Available for future
+   posts — not currently assigned to either migrated post.
+================================= */
+.content-wrapper.theme-parchment {
+    background: #e6d8b8;
+    --text-color: #3a2e1c;
+    --text-secondary: #6b5a3c;
+    --heading-color: #2a1f10;
+    --accent-color: #8a4a2a;
+    --border-color: rgba(90, 60, 30, 0.3);
+    --card-bg: #ddccA0;
+}
+
+.content-wrapper.theme-parchment::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: radial-gradient(ellipse at 20% 10%, rgba(255, 255, 255, 0.25), transparent 55%),
+                radial-gradient(ellipse at 80% 90%, rgba(0, 0, 0, 0.08), transparent 60%);
+}
+
+.content-wrapper.theme-parchment .blog-post-body code {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+/* ===============================
+   Theme: signal
+   Two traces that look aligned but aren't — a dark violet/magenta
+   instrumentation-readout look, for posts about measurement, divergence,
+   and things that dissociate under scrutiny.
+================================= */
+.content-wrapper.theme-signal {
+    background: #120f18;
+    --text-color: #d9d0e8;
+    --text-secondary: #9184a8;
+    --heading-color: #c9a8f0;
+    --accent-color: #e0507a;
+    --border-color: rgba(200, 150, 240, 0.22);
+    --card-bg: #1a1420;
+}
+
+.content-wrapper.theme-signal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        repeating-linear-gradient(100deg, rgba(224, 80, 122, 0.05) 0px, rgba(224, 80, 122, 0.05) 1px, transparent 1px, transparent 38px),
+        repeating-linear-gradient(80deg, rgba(201, 168, 240, 0.05) 0px, rgba(201, 168, 240, 0.05) 1px, transparent 1px, transparent 38px);
+    mask-image: radial-gradient(ellipse 70% 60% at 50% 0%, black 40%, transparent 90%);
+}
+
+.content-wrapper.theme-signal .blog-post-title {
+    text-shadow: 1px 0 rgba(224, 80, 122, 0.4), -1px 0 rgba(155, 120, 220, 0.35);
+}
+
+.content-wrapper.theme-signal .blog-post-body blockquote {
+    border-left-color: var(--accent-color);
+}
+
+/* ===============================
+   Writings index cards (writings.html) — the whole card is a link (see
+   .writing-item below); each one also carries a small unlabeled colored
+   dot hinting that its post has its own distinct look, without naming it.
+================================= */
+.writing-item-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.6rem;
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.02em;
+}
+
+.writing-theme-swatch {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+.writing-theme-swatch.swatch-terminal { background: #39ff88; box-shadow: 0 0 6px rgba(57, 255, 136, 0.7); }
+.writing-theme-swatch.swatch-chalkboard { background: #e8c468; box-shadow: 0 0 6px rgba(232, 196, 104, 0.6); }
+.writing-theme-swatch.swatch-parchment { background: #c9a15a; box-shadow: 0 0 6px rgba(201, 161, 90, 0.6); }
+.writing-theme-swatch.swatch-signal { background: #e0507a; box-shadow: 0 0 6px rgba(224, 80, 122, 0.6); }
+
+/* The whole card is the link — .writing-item is now an <a>, not a <div>.
+   Selector specificity here needs to beat the #writings a rule in style.css. */
+#writings a.writing-item {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+#writings a.writing-item::after {
+    content: none;
+}
+
+.writing-item p {
+    color: var(--text-color);
+}
+
+.writing-item-cta {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--accent-color);
+    position: relative;
+}
+
+.writing-item-cta::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 1px;
+    background: var(--accent-color);
+    transition: width 0.25s ease;
+}
+
+a.writing-item:hover .writing-item-cta::after {
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-wrapper[class*="theme-"] .blog-shell {
+        padding: 6rem 1.4rem 3rem;
+    }
+}

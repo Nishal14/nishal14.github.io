@@ -1,0 +1,78 @@
+<!--
+  BLOG POST TEMPLATE — copy this file to blog/<your-slug>.html to start a new post.
+
+  Steps:
+  1. Duplicate this file, rename it to a URL-friendly slug (e.g. blog/why-i-like-small-models.html).
+  2. Fill in <title>, the meta description/og tags, and everything inside <!-- POST CONTENT -->.
+  3. Pick a theme class for the <main> tag below: theme-terminal, theme-chalkboard, theme-parchment,
+     or theme-signal (see blog.css for what each looks like — reuse one, or add a new theme block in
+     blog.css following the same pattern if none of them fit the post).
+  4. Add a card for the new post to writings.html so it's discoverable from the blog index.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>POST TITLE — Nishal Thomas</title>
+    <meta name="description" content="One-line description of the post.">
+    <meta property="og:title" content="POST TITLE — Nishal Thomas">
+    <meta property="og:description" content="One-line description of the post.">
+    <meta property="og:image" content="../public/logo.png">
+    <meta property="og:type" content="article">
+    <link rel="icon" type="image/png" href="../public/logo.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div class="layout subpage">
+    <nav class="fixed-nav visible" id="fixedNav">
+        <div class="nav-container">
+            <a href="../index.html#hero" class="nav-logo"><img src="../public/logo.png" alt="Nishal Thomas logo" class="nav-logo-img"></a>
+            <div class="nav-links">
+                <a href="../about.html" class="nav-link">About</a>
+                <a href="../projects.html" class="nav-link">Projects</a>
+                <a href="../publications.html" class="nav-link">Publications</a>
+                <a href="../writings.html" class="nav-link active">Blogs/Writings</a>
+                <a href="../public/Nishal_CV.pdf?v=20260327" class="nav-link" target="_blank">CV</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-wrapper theme-terminal">
+        <div class="blog-shell">
+            <a href="../writings.html" class="blog-back-link"><i class="fa-solid fa-arrow-left"></i> Back to Writings</a>
+
+            <!-- POST CONTENT -->
+            <header class="blog-post-header">
+                <span class="blog-theme-tag">Category / Theme</span>
+                <h1 class="blog-post-title">Post Title</h1>
+                <p class="blog-post-dek">One-sentence subtitle.</p>
+                <div class="blog-post-meta">
+                    <span><i class="fa-regular fa-calendar"></i> Month Day, Year</span>
+                    <span><i class="fa-regular fa-clock"></i> N min read</span>
+                </div>
+            </header>
+
+            <article class="blog-post-body">
+                <p>First paragraph.</p>
+            </article>
+
+            <footer class="blog-post-footer">
+                <a href="../writings.html"><i class="fa-solid fa-arrow-left"></i> All writings</a>
+            </footer>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p class="footer-copy">© 2026 Nishal Thomas.</p>
+    </footer>
+</div>
+
+<script src="../main.js"></script>
+</body>
+</html>
