@@ -62,3 +62,6 @@ coverage/
 # Next.js:
 .next/
 out/
+
+# CV LaTeX build (source/build artifacts, not needed in repo)
+.cv-build/
